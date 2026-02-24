@@ -6,9 +6,6 @@ slug: /
 
 # <span className="blue-title">歡迎來到 KAI BLOG !</span>
 
-<div class="wei_Photo">
-![alt text](../../static/img/BG1.png)
-</div>
 嗨，我是 **KAI** 
 
 歡迎你來到 <span className="blue-stroke-text">KAI BLOG !</span> 
