@@ -14,8 +14,6 @@ slug: /use
 ### 💾 作業系統
 
 - Linux
-
-
     - [Fedora KDE](https://fedoraproject.org/kde)－ 要用 Linux 的話都是跑 Fedora KDE（比較現代感 🤣）
     - [Omarchy](https://omarchy.org/)－ WIWI 說很潮，我沒用過，但還是留下來 😂
 

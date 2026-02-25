@@ -20,9 +20,7 @@ export default function RandomPage() {
         !path.includes('tags') &&      // 排除標籤彙整頁
         !path.includes('search') && 
         !path.includes('*') &&   // 排除*頁
-        !path.includes('author') && 
         !path.includes('/about') && 
-        !path.includes('/love') && 
         !path.includes('/__docusaurus/')    // 排除/__docusaurus/頁
       );
 
