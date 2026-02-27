@@ -15,6 +15,15 @@ date: 2026-02-28T08:00
 
 #### 應該說更新緩慢而不是停止更新
 
+### 如果我們不曾相遇
+
+新製作：https://www.instagram.com/reel/DVOaU6dD5JL/?igsh=MWtodWh5c25qb3hheg==
+
+### 113科技音樂上課內容
+
+:::tip [點我前往](/doc/Tutorial/113tech-music)
+:::
+
 感謝大家！
 
 ## 昨天
