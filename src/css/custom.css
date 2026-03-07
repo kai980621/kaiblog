@@ -60,6 +60,13 @@ a.link:hover {
   color: var(--ifm-color-primary);
 }
 
+.red {
+  color: red;
+}
+html[data-theme='dark'] .red {
+  color: #f85353;
+}
+
 .gray {
   color: #726f6f;
 }

@@ -6,6 +6,7 @@ slug: /
 
 # <span className="blue-title">歡迎來到 KAI BLOG !</span>
 
+# <span className="red">為了準備學測，此網站暫時停止更新！</span>
 嗨，我是 **KAI** 
 
 歡迎你來到 <span className="blue-stroke-text">KAI BLOG !</span> 
