@@ -36,6 +36,7 @@ const config = {
           showReadingTime: true,
           feedOptions: { type: ['rss', 'atom'], xslt: true },
           onInlineTags: 'warn',
+          onBrokenLinks: 'warn',
           onUntruncatedBlogPosts: 'warn',
           
         },
