@@ -10,7 +10,6 @@ import VerifyButton from '@site/src/components/VerifyButton';
 
 歡迎來到 **KAI STUDIO** 社群。為了維護討論品質並防範惡意帳號，請你在加入前完成以下認證手續。
 
----
 
 ## 🚀 驗證流程 (Verification)
 
@@ -19,7 +18,6 @@ import VerifyButton from '@site/src/components/VerifyButton';
 3.  **填寫表單**：點擊下方連結前往 OpenForms 填寫基本資料。
 4.  **完成認證**：填寫完後，回到本頁面點擊最下方的「提交認證」按鈕。
 
----
 
 ## 📜 伺服器守則 (Server Rules)
 
@@ -46,8 +44,6 @@ import VerifyButton from '@site/src/components/VerifyButton';
 - **初犯/輕微**：口頭警告或暫時禁言 (Mute)。
 - **再犯/嚴重**：強制踢出 (Kick) 或永久封鎖 (Ban)。
 
----
-
 ## 📝 認證表單
 
 請先點擊下方連結完成資料填寫：
@@ -56,7 +52,6 @@ import VerifyButton from '@site/src/components/VerifyButton';
 👉 **[點我前往 OpenForms 填寫認證資料](https://openforms.com/)**
 :::
 
----
 
 ## 🛠️ 最後步驟
 
@@ -64,7 +59,7 @@ import VerifyButton from '@site/src/components/VerifyButton';
 
 <VerifyButton />
 
----
+
 
 :::info 審核說明
 * 管理團隊會核對你的 **OpenForms 資料** 與 **Discord 帳號活動**。
