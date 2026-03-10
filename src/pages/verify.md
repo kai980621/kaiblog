@@ -47,15 +47,6 @@ import VerifyButton from '@site/src/components/VerifyButton';
 
 請先點擊下方連結完成資料填寫：
 
-:::tip OpenForms 認證連結
-👉 **[點我前往 OpenForms 填寫認證資料](https://opnform.com/forms/kai-studio-discord-yiqsu6)**
-:::
-
-
-## 🛠️ 最後步驟
-
-填寫完 OpenForms 後，請點擊下方按鈕以通知管理團隊：
-
 <VerifyButton />
 
 
