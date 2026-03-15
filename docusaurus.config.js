@@ -127,7 +127,7 @@ const config = {
               { label: '關於我', to: '/about' },
               { label: '愛用', to: '/use' },
               { label: '應用程式', to: '/app' },
-              { label: '更新紀錄', to: '/update' },
+              { label: '更新紀錄', to: '/docs/update' },
             ],
           },
           {
