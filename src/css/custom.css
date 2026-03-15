@@ -150,3 +150,15 @@ html[data-theme='dark'] .gray {
     border-radius: 12px;
   }
 }
+
+/* 針對導覽列的 Logo */
+.navbar__logo {
+  border-radius: 12px; /* 數值越大越圓，50% 會變成圓形 */
+  overflow: hidden;    /* 確保圖片內容不會超出圓角 */
+}
+
+/* 如果是針對首頁那個大圖示，可以嘗試這組 */
+.hero__series-logo, .home-logo { 
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* 順便加一點陰影更有質感 */
+}
