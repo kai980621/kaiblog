@@ -4,14 +4,16 @@ slug: /update
 ---
 
 # ⬆︎ 更新紀錄 `/update`
-## #01 2026-03-16 #478
+## #02 2026-03-16 
 - 新增 `更新紀錄` 裡面的編號
 
 - 優化 CSS
 
 - [新增 BLOG MAYDAY Etudes PDF](/blog/mayday1)
 
-## #01 2026-03-15 #476
+- 修正 `tag.yaml` 裡面的標籤
+
+## #01 2026-03-15 
 - [新增 BLOG MAYDAY Etudes PDF](/blog/mayday2)
 
 - 新增此頁面，放置於 (docs/update)
