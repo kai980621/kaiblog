@@ -2,7 +2,7 @@
 slug: mayday2
 title: MAYDAY Etude No.2
 description: ""
-tags: [MAYDAY]
+tags: [五月天]
 date: 2026-03-15T08:00
 ---
 
