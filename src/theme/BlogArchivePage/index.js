@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
@@ -50,230 +51,145 @@ export default function BlogArchivePage(props) {
     <Layout title="貼文列表">
       <main className="archive-container">
         <header className="archive-header">
-          <h1>所有貼文</h1>
+          <h1 className="archive-title">所有貼文</h1>
         </header>
 
         {displayData.map((yearGroup) => (
-          <details key={yearGroup.year} className="year-details" open>
-            <summary className="year-summary">
-              <h2 className="year-heading">{yearGroup.year}</h2>
-              <div className="year-meta">
-                <span className="year-count">
-                  {yearGroup.months.reduce((sum, m) => sum + m.posts.length, 0)} 篇
-                </span>
-                <span className="toggle-arrow">▼</span>
-              </div>
-            </summary>
+          <section key={yearGroup.year} className="year-section">
+            <details className="year-details" open>
+              <summary className="year-summary">
+                <div className="year-info">
+                  <span className="year-label">{yearGroup.year}</span>
+                  <span className="year-badge">{yearGroup.months.reduce((sum, m) => sum + m.posts.length, 0)} 篇</span>
+                </div>
+                <span className="arrow-icon"></span>
+              </summary>
 
-            <div className="months-grid">
-              {yearGroup.months.map((monthGroup) => (
-                <details key={monthGroup.month} className="month-details" open>
-                  <summary className="month-summary">
-                    <h3 className="month-heading">
-                      <span className="month-dot"></span>
-                      {monthGroup.month} 月
-                    </h3>
-                    <span className="toggle-arrow">▼</span>
-                  </summary>
-                  
-                  <ul className="post-list">
-                    {monthGroup.posts.map((post) => {
-                      const dateObj = new Date(post.metadata.date);
-                      const dateStr = `${(dateObj.getMonth() + 1).toString().padStart(2, '0')}/${dateObj.getDate().toString().padStart(2, '0')}`;
-                      
-                      return (
-                        <li key={post.metadata.permalink}>
-                          <Link to={post.metadata.permalink} className="post-link">
-                            <span className="post-date">{dateStr}</span>
-                            <span className="post-title">{post.metadata.title}</span>
-                          </Link>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </details>
-              ))}
-            </div>
-          </details>
+              <div className="months-grid">
+                {yearGroup.months.map((monthGroup) => (
+                  <details key={monthGroup.month} className="month-item" open>
+                    <summary className="month-header">
+                      <span className="month-text">{monthGroup.month} 月</span>
+                      <span className="arrow-icon small"></span>
+                    </summary>
+                    <ul className="post-list">
+                      {monthGroup.posts.map((post) => {
+                        const dateObj = new Date(post.metadata.date);
+                        const dateStr = `${(dateObj.getMonth() + 1).toString().padStart(2, '0')}/${dateObj.getDate().toString().padStart(2, '0')}`;
+                        return (
+                          <li key={post.metadata.permalink}>
+                            <Link to={post.metadata.permalink} className="post-link">
+                              <span className="post-date">{dateStr}</span>
+                              <span className="post-title">{post.metadata.title}</span>
+                            </Link>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </details>
+                ))}
+              </div>
+            </details>
+          </section>
         ))}
       </main>
 
       <style>{`
-        /* 容器與主標題 */
         .archive-container {
-          max-width: 1000px;
+          max-width: 900px;
           margin: 0 auto;
-          padding: 3rem 1.5rem;
-          min-height: 85vh;
+          padding: 2rem 1rem;
+          min-height: 80vh;
         }
-        
-        .archive-header h1 {
-          font-size: 3rem;
-          font-weight: 900;
+
+        .archive-title {
+          font-size: 2.25rem;
+          font-weight: 800;
           margin-bottom: 2rem;
           color: var(--ifm-color-primary);
+          text-align: center;
         }
 
-        /* 重置細節標籤的預設樣式 */
-        details > summary {
-          list-style: none;
-          cursor: pointer;
-          outline: none;
-        }
-        details > summary::-webkit-details-marker {
-          display: none;
-        }
+        /* 移除原生箭頭 */
+        details > summary { list-style: none; outline: none; }
+        details > summary::-webkit-details-marker { display: none; }
 
-        /* 箭頭微動畫 */
-        .toggle-arrow {
-          display: inline-block;
-          font-size: 0.85rem;
-          color: var(--ifm-color-emphasis-400);
-          transition: transform 0.3s ease;
-          transform: rotate(-90deg); /* 收合狀態：箭頭朝右 */
-        }
-        details[open] > summary .toggle-arrow {
-          transform: rotate(0deg); /* 展開狀態：箭頭朝下 */
-        }
-
-        /* 年份折疊區塊 */
-        .year-details {
-          margin-bottom: 2.5rem;
-        }
-
+        /* 年份樣式 */
+        .year-section { margin-bottom: 2rem; }
         .year-summary {
           display: flex;
-          align-items: center;
           justify-content: space-between;
-          border-bottom: 2px solid var(--ifm-color-emphasis-200);
-          padding-bottom: 0.8rem;
-          margin-bottom: 1.5rem;
-          transition: border-color 0.2s ease;
-        }
-        
-        .year-summary:hover {
-          border-color: var(--ifm-color-primary);
-        }
-
-        .year-heading {
-          font-size: 2rem;
-          font-weight: 800;
-          margin: 0;
-          color: var(--ifm-font-color-base);
-        }
-
-        .year-meta {
-          display: flex;
           align-items: center;
-          gap: 12px;
+          padding: 0.75rem 0;
+          border-bottom: 2px solid var(--ifm-color-emphasis-200);
+          cursor: pointer;
         }
 
-        .year-count {
-          font-size: 1rem;
-          color: var(--ifm-color-emphasis-500);
-          font-weight: 600;
+        .year-label { font-size: 1.75rem; font-weight: 800; margin-right: 1rem; }
+        .year-badge { 
+          font-size: 0.9rem; 
+          background: var(--ifm-color-emphasis-200);
+          padding: 2px 10px;
+          border-radius: 20px;
+          color: var(--ifm-color-emphasis-700);
         }
 
-        /* 月份網格 (保留上一版的乾淨多欄位排列) */
+        /* 月份網格邏輯：電腦版並排，手機版堆疊 */
         .months-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-          gap: 2rem;
-          padding-top: 0.5rem;
+          grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+          gap: 1.5rem;
+          padding: 1.5rem 0;
         }
 
-        /* 月份折疊區塊 */
-        .month-details {
-          background: transparent;
+        .month-item {
+          border: 1px solid var(--ifm-color-emphasis-200);
+          border-radius: 12px;
+          padding: 1rem;
+          background: var(--ifm-background-surface-color);
+          height: fit-content;
         }
 
-        .month-summary {
+        .month-header {
           display: flex;
-          align-items: center;
           justify-content: space-between;
-          margin-bottom: 1rem;
-          padding: 0.5rem;
-          border-radius: 8px;
-          transition: background-color 0.2s ease;
-        }
-
-        .month-summary:hover {
-          background-color: var(--ifm-color-emphasis-100);
-        }
-
-        .month-heading {
-          font-size: 1.25rem;
-          font-weight: 700;
-          margin: 0;
-          color: var(--ifm-color-primary);
-          display: flex;
           align-items: center;
-          gap: 8px;
+          margin-bottom: 0.5rem;
+          font-weight: 700;
+          color: var(--ifm-color-primary);
         }
 
-        .month-dot {
-          display: block;
-          width: 6px;
-          height: 6px;
-          border-radius: 50%;
-          background-color: var(--ifm-color-primary);
-          opacity: 0.7;
+        /* 統一箭頭樣式 */
+        .arrow-icon {
+          width: 10px; height: 10px;
+          border-right: 2px solid currentColor;
+          border-bottom: 2px solid currentColor;
+          transform: rotate(45deg);
+          transition: 0.2s;
+          margin-right: 5px;
         }
+        details[open] > summary .arrow-icon { transform: rotate(-135deg); }
+        .arrow-icon.small { width: 6px; height: 6px; opacity: 0.5; }
 
-        /* 貼文列表 */
-        .post-list {
-          list-style: none;
-          padding: 0 0.5rem;
-          margin: 0;
-          display: flex;
-          flex-direction: column;
-          gap: 0.5rem;
-        }
-
+        /* 文章列表 */
+        .post-list { list-style: none; padding: 0; margin: 0; }
         .post-link {
           display: flex;
-          align-items: flex-start;
+          gap: 12px;
+          padding: 6px 4px;
           text-decoration: none !important;
-          padding: 0.5rem 0.5rem;
-          border-radius: 6px;
-          margin-left: -0.5rem;
-          transition: background-color 0.2s ease;
+          color: var(--ifm-font-color-base) !important;
+          font-size: 0.95rem;
+          border-radius: 4px;
         }
+        .post-link:hover { background: var(--ifm-color-emphasis-100); }
+        .post-date { color: var(--ifm-color-emphasis-600); font-family: monospace; flex-shrink: 0; }
+        .post-title { line-height: 1.4; }
 
-        .post-link:hover {
-          background-color: var(--ifm-color-emphasis-100);
-        }
-
-        .post-date {
-          flex-shrink: 0;
-          font-family: monospace;
-          font-size: 0.85rem;
-          color: var(--ifm-color-emphasis-500);
-          margin-right: 1rem;
-          margin-top: 0.15rem;
-        }
-
-        .post-title {
-          font-size: 1rem;
-          font-weight: 500;
-          color: var(--ifm-font-color-base);
-          line-height: 1.4;
-          transition: color 0.2s ease;
-        }
-
-        .post-link:hover .post-title {
-          color: var(--ifm-color-primary);
-        }
-
-        /* 手機版微調 */
         @media (max-width: 768px) {
-          .archive-header h1 {
-            font-size: 2.5rem;
-          }
-          .months-grid {
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-          }
+          .archive-title { font-size: 1.8rem; text-align: left; }
+          .months-grid { grid-template-columns: 1fr; gap: 1rem; }
+          .year-label { font-size: 1.5rem; }
         }
       `}</style>
     </Layout>
