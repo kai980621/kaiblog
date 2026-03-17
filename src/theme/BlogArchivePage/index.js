@@ -54,18 +54,28 @@ export default function BlogArchivePage(props) {
         </header>
 
         {displayData.map((yearGroup) => (
-          <section key={yearGroup.year} className="year-section">
-            <div className="year-heading-wrapper">
+          <details key={yearGroup.year} className="year-details" open>
+            <summary className="year-summary">
               <h2 className="year-heading">{yearGroup.year}</h2>
-              <span className="year-count">
-                {yearGroup.months.reduce((sum, m) => sum + m.posts.length, 0)} 篇
-              </span>
-            </div>
+              <div className="year-meta">
+                <span className="year-count">
+                  {yearGroup.months.reduce((sum, m) => sum + m.posts.length, 0)} 篇
+                </span>
+                <span className="toggle-arrow">▼</span>
+              </div>
+            </summary>
 
             <div className="months-grid">
               {yearGroup.months.map((monthGroup) => (
-                <div key={monthGroup.month} className="month-block">
-                  <h3 className="month-heading">{monthGroup.month} 月</h3>
+                <details key={monthGroup.month} className="month-details" open>
+                  <summary className="month-summary">
+                    <h3 className="month-heading">
+                      <span className="month-dot"></span>
+                      {monthGroup.month} 月
+                    </h3>
+                    <span className="toggle-arrow">▼</span>
+                  </summary>
+                  
                   <ul className="post-list">
                     {monthGroup.posts.map((post) => {
                       const dateObj = new Date(post.metadata.date);
@@ -81,15 +91,15 @@ export default function BlogArchivePage(props) {
                       );
                     })}
                   </ul>
-                </div>
+                </details>
               ))}
             </div>
-          </section>
+          </details>
         ))}
       </main>
 
       <style>{`
-        /* 容器與標題 */
+        /* 容器與主標題 */
         .archive-container {
           max-width: 1000px;
           margin: 0 auto;
@@ -100,22 +110,49 @@ export default function BlogArchivePage(props) {
         .archive-header h1 {
           font-size: 3rem;
           font-weight: 900;
-          margin-bottom: 3rem;
+          margin-bottom: 2rem;
           color: var(--ifm-color-primary);
         }
 
-        /* 年份區塊 */
-        .year-section {
-          margin-bottom: 4rem;
+        /* 重置細節標籤的預設樣式 */
+        details > summary {
+          list-style: none;
+          cursor: pointer;
+          outline: none;
+        }
+        details > summary::-webkit-details-marker {
+          display: none;
         }
 
-        .year-heading-wrapper {
+        /* 箭頭微動畫 */
+        .toggle-arrow {
+          display: inline-block;
+          font-size: 0.85rem;
+          color: var(--ifm-color-emphasis-400);
+          transition: transform 0.3s ease;
+          transform: rotate(-90deg); /* 收合狀態：箭頭朝右 */
+        }
+        details[open] > summary .toggle-arrow {
+          transform: rotate(0deg); /* 展開狀態：箭頭朝下 */
+        }
+
+        /* 年份折疊區塊 */
+        .year-details {
+          margin-bottom: 2.5rem;
+        }
+
+        .year-summary {
           display: flex;
-          align-items: baseline;
+          align-items: center;
           justify-content: space-between;
           border-bottom: 2px solid var(--ifm-color-emphasis-200);
-          padding-bottom: 0.5rem;
-          margin-bottom: 2rem;
+          padding-bottom: 0.8rem;
+          margin-bottom: 1.5rem;
+          transition: border-color 0.2s ease;
+        }
+        
+        .year-summary:hover {
+          border-color: var(--ifm-color-primary);
         }
 
         .year-heading {
@@ -125,33 +162,56 @@ export default function BlogArchivePage(props) {
           color: var(--ifm-font-color-base);
         }
 
+        .year-meta {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+        }
+
         .year-count {
           font-size: 1rem;
           color: var(--ifm-color-emphasis-500);
           font-weight: 600;
         }
 
-        /* 月份網格 (核心改進：捨棄橫向滾動，改用自動網格) */
+        /* 月份網格 (保留上一版的乾淨多欄位排列) */
         .months-grid {
           display: grid;
-          /* 電腦版自動排滿，最小寬度 300px，排不下自動換行 */
           grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-          gap: 2.5rem;
+          gap: 2rem;
+          padding-top: 0.5rem;
+        }
+
+        /* 月份折疊區塊 */
+        .month-details {
+          background: transparent;
+        }
+
+        .month-summary {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-bottom: 1rem;
+          padding: 0.5rem;
+          border-radius: 8px;
+          transition: background-color 0.2s ease;
+        }
+
+        .month-summary:hover {
+          background-color: var(--ifm-color-emphasis-100);
         }
 
         .month-heading {
           font-size: 1.25rem;
           font-weight: 700;
-          margin-bottom: 1rem;
+          margin: 0;
           color: var(--ifm-color-primary);
           display: flex;
           align-items: center;
           gap: 8px;
         }
 
-        /* 月份標題旁的小圓點點綴 */
-        .month-heading::before {
-          content: '';
+        .month-dot {
           display: block;
           width: 6px;
           height: 6px;
@@ -160,10 +220,10 @@ export default function BlogArchivePage(props) {
           opacity: 0.7;
         }
 
-        /* 貼文列表與 hover 效果 */
+        /* 貼文列表 */
         .post-list {
           list-style: none;
-          padding: 0;
+          padding: 0 0.5rem;
           margin: 0;
           display: flex;
           flex-direction: column;
@@ -174,9 +234,9 @@ export default function BlogArchivePage(props) {
           display: flex;
           align-items: flex-start;
           text-decoration: none !important;
-          padding: 0.75rem;
-          border-radius: 8px;
-          margin-left: -0.75rem; /* 對齊修正 */
+          padding: 0.5rem 0.5rem;
+          border-radius: 6px;
+          margin-left: -0.5rem;
           transition: background-color 0.2s ease;
         }
 
@@ -190,7 +250,7 @@ export default function BlogArchivePage(props) {
           font-size: 0.85rem;
           color: var(--ifm-color-emphasis-500);
           margin-right: 1rem;
-          margin-top: 0.1rem; /* 微調與標題對齊 */
+          margin-top: 0.15rem;
         }
 
         .post-title {
@@ -211,8 +271,8 @@ export default function BlogArchivePage(props) {
             font-size: 2.5rem;
           }
           .months-grid {
-            grid-template-columns: 1fr; /* 手機版變成單行 */
-            gap: 2rem;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
           }
         }
       `}</style>
