@@ -5,6 +5,10 @@ slug: /
 
 歡迎來到 **筆記區** 📘  
 
+### 教學資源區
+
+- [113-1 科技音樂教學進度](/docs/Tutorial/113tech-music)
+
 ### DaVinci Resolve 教學區
 
 - [達芬奇模板V1更新](/docs/resolve/resolvepackV1-update)
