@@ -4,17 +4,24 @@ slug: /update
 ---
 
 # ⬆︎ 更新紀錄 `/update`
+## #03 2026-03-20
+- 更新 [`應用程式`](/app) 軟體
+
+- 手機介面更好閱讀
+
+- 文章引入 {/* truncate */} 讓 BLOG 頁面顯示閱讀更多
+
 ## #02 2026-03-16 
 - 新增 `更新紀錄` 裡面的編號
 
 - 優化 CSS
 
-- [新增 BLOG MAYDAY Etudes PDF](/blog/mayday1)
+- [新增 BLOG MAYDAY Etudes PDF No.01](/blog/mayday1)
 
 - 修正 `tag.yaml` 裡面的標籤
 
 ## #01 2026-03-15 
-- [新增 BLOG MAYDAY Etudes PDF](/blog/mayday2)
+- [新增 BLOG MAYDAY Etudes PDF No.02](/blog/mayday2)
 
 - 新增此頁面，放置於 (docs/update)
 
