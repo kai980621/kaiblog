@@ -31,3 +31,24 @@ finale:
   label: 'Finale 樂譜軟體'
   permalink: /tags/finale
   description: 'Finale 使用教學與資源'
+
+typing:
+  label: '⌨️ 打字'
+  permalink: /tags/typing
+  description: '打字練習與心得'
+
+blog:
+  label: '📝 網誌'
+  permalink: /tags/blog
+  description: '各種生活與技術文章'
+
+blogblog.club:
+  label: '📜 BlogBlog.Club'
+  permalink: /tags/blogblog-club-site
+  description: 'BlogBlog.Club 相關內容'
+
+
+prizm:
+  label: '💎 三稜鏡'
+  permalink: /tags/prizm
+  description: '三稜鏡 Prizm 相關心得'

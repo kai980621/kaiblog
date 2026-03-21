@@ -15,138 +15,182 @@
   --ifm-color-primary-light: #5aabf2;
 
   --docusaurus-highlighted-code-line-bg: rgba(66, 158, 238, 0.12);
+  
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.3);
+  --card-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
 }
 
 html[data-theme='dark'] {
   --ifm-color-primary: #6bb4f4;
-  --docusaurus-highlighted-code-line-bg: rgba(107, 180, 244, 0.28);
+  --glass-bg: rgba(30, 41, 59, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
 }
 
 body {
   font-family: 'Huninn', sans-serif;
 }
 
-button,
-a {
-  box-shadow: none !important;
-}
-
-
 /* ============================================================
-2. hover 效果（安全，不影響 layout）
+2. 全域連結與按鈕
 ============================================================ */
 
-.menu__link,
-.dropdown__link,
-a.link {
+.menu__link, .dropdown__link, a.link {
   transition: 0.2s ease;
   border-radius: 6px;
 }
 
-.menu__link:hover,
-.dropdown__link:hover,
-a.link:hover {
+.menu__link:hover, .dropdown__link:hover, a.link:hover {
   background-color: rgba(66, 158, 238, 0.12);
   color: var(--ifm-color-primary);
 }
 
-
 /* ============================================================
-3. 標題樣式
+3. 媒體元件
 ============================================================ */
 
-.hero-title,
-.blue-title {
-  color: var(--ifm-color-primary);
-}
-
-.red {
-  color: red;
-}
-html[data-theme='dark'] .red {
-  color: #f85353;
-}
-
-.gray {
-  color: #726f6f;
-}
-
-html[data-theme='dark'] .gray {
-  color: #949597;
-}
-
-
-/* ============================================================
-4. 媒體元件
-============================================================ */
-
-.youtube,
-.youtube-s {
+.youtube, .youtube-s {
   max-width: 960px;
-  margin: 2rem 0;
+  margin: 2rem auto;
   padding: 1.2rem;
   background: #def5ff;
   border-radius: 14px;
 }
 
-[data-theme='dark'] .youtube,
-[data-theme='dark'] .youtube-s {
+[data-theme='dark'] .youtube, [data-theme='dark'] .youtube-s {
   background: #2a3b43;
 }
 
-.youtube iframe,
-.youtube-s iframe {
+.youtube iframe, .youtube-s iframe {
   width: 100%;
   aspect-ratio: 16/9;
   border-radius: 10px;
   border: 0;
 }
 
-[data-theme='dark'] :is( .photo-border img) { background: #2a3b43; }
+/* ============================================================
+4. 首頁極簡樣式
+============================================================ */
 
-.photo-border img {
-  margin: 2rem 0; padding: 1.2rem; background: #def5ff; border-radius: 14px;
+.homepage_hero {
+  padding: 4rem 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
-/* 1. 設定外層容器：這就是你的扁長型 Banner */
-.wei_Photo {
-  display: flex;           /* 讓裡面的圖片可以輕易置中 */
-  justify-content: center; /* 水平置中 */
-  align-items: center;     /* 垂直置中 */
-  
-  width: 100%;
-  max-width: 800px;        /* 跟文字寬度對齊 */
-  height: 250px;           /* 【關鍵】這裡控制 Banner 有多扁 */
-  
-  /* 【重點】設定一個跟圖片邊緣相近的深藍色底色 */
-  /* 這樣圖片縮小時，旁邊才不會變白色的 */
-  background-color: #002a5c; 
-  
-  margin: 0 0 2rem 0;      /* 下方留白 */
-  border-radius: 16px;     /* 圓角 */
-  overflow: hidden;        /* 確保圖片不會跑出圓角外 */
+.homepage_hero h1 {
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: var(--ifm-color-primary);
+  margin-bottom: 0.5rem;
 }
 
-/* 2. 設定裡面的圖片：這是你的 Logo */
-.wei_Photo img {
-  /* 【關鍵】這裡控制 K 要顯示多大！ */
-  /* 試著調整這個百分比：80% 比較收斂，95% 比較滿 */
-  height: 85%; 
-  width: auto; /* 寬度自動，保持比例 */
-  
-  /* 以下是重置之前的設定，確保乾淨 */
-  max-width: 100%;
-  margin: 0;
-  padding: 0;
-  background: transparent;
-  border-radius: 0;
-  box-shadow: none;
+.homepage_hero p {
+  font-size: 1.2rem;
+  opacity: 0.8;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
-/* 手機版適應 */
-@media (max-width: 600px) {
-  .wei_Photo {
-    height: 180px; /* 手機上高度稍微縮減一點 */
-    border-radius: 12px;
-  }
+.features_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 3rem 0;
+}
+
+.feature_card {
+  padding: 2rem;
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  box-shadow: var(--card-shadow);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  text-decoration: none !important;
+  color: inherit !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.feature_card:hover {
+  transform: scale(1.05);
+  border-color: var(--ifm-color-primary);
+  background: white;
+}
+
+[data-theme='dark'] .feature_card:hover {
+  background: #1e293b;
+}
+
+.feature_card .icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.feature_card h3 {
+  margin-bottom: 0.5rem;
+  color: var(--ifm-color-primary);
+}
+
+.section_title {
+  display: flex; align-items: center; gap: 0.5rem;
+  font-size: 2rem;
+  margin: 3rem 0 1.5rem;
+}
+
+.youtube_card {
+  background: var(--glass-bg);
+  border-radius: 20px;
+  padding: 1.5rem;
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--card-shadow);
+}
+
+.contact_section {
+  background: var(--ifm-color-primary);
+  color: white;
+  padding: 2.5rem;
+  border-radius: 24px;
+  margin: 4rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.contact_info h2 { margin: 0; font-size: 2rem; }
+
+.contact_btn {
+  background: white;
+  color: var(--ifm-color-primary);
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.contact_btn:hover {
+  background: #f0f0f0;
+  transform: scale(1.05);
+}
+
+.info_section { margin: 4rem 0; }
+.info_grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+.info_card { background: var(--glass-bg); padding: 2rem; border-radius: 24px; border: 1px solid var(--glass-border); box-shadow: var(--card-shadow); }
+.info_card h3 { display: flex; align-items: center; gap: 0.5rem; font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--ifm-color-primary); }
+.info_list { list-style: none; padding: 0; margin: 0; }
+.info_list li { margin-bottom: 1.2rem; padding-left: 1.5rem; position: relative; }
+.info_list li::before { content: "•"; color: var(--ifm-color-primary); font-weight: bold; position: absolute; left: 0; }
+.info_list code { background: rgba(66, 158, 238, 0.1); color: var(--ifm-color-primary); border: none; }
+
+@media (max-width: 768px) {
+  .homepage_hero h1 { font-size: 2.5rem; }
+  .homepage_hero p { font-size: 1.1rem; }
 }
