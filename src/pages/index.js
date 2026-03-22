@@ -24,7 +24,60 @@ function Feature({ icon, title, description, to }) {
   );
 }
 
-
+function InfoSection() {
+  return (
+    <section className="info_section">
+      <div className="info_grid">
+        <div className="info_card">
+          <h3>🛠️ 其他小技巧！</h3>
+          <ul className="info_list">
+            <li>
+              <b>RSS 訂閱</b>：你可以用 RSS 追蹤我
+              <div className="rss_copy_wrapper">
+                <code>https://kaiblog.is-a.dev/blog/rss.xml</code>
+                <button
+                  className="copy_btn"
+                  onClick={() => {
+                    navigator.clipboard.writeText('https://kaiblog.is-a.dev/blog/rss.xml');
+                    const btn = document.getElementById('rss_copy_btn');
+                    btn.innerText = '✅ 已複製！';
+                    setTimeout(() => { btn.innerText = '📋 複製網址'; }, 2000);
+                  }}
+                  id="rss_copy_btn"
+                >
+                  📋 複製網址
+                </button>
+              </div>
+            </li>
+            <li>
+              <b>全站搜尋</b>：按下 <code>Ctrl + K</code> 即可搜尋關鍵字！
+            </li>
+            <li>
+              <b>聯繫我</b>：有任何建議，歡迎寫信至 <code>kaigithub0621@gmail.com</code>
+            </li>
+          </ul>
+        </div>
+        <div className="info_card">
+          <h3>🌐 其他資訊</h3>
+          <ul className="info_list">
+            <li>
+              <Link to="/docs/resolve/resolvepackV3-update">🎬 達芬奇模板：ResolveV3Pack 下載</Link>
+            </li>
+            <li>
+              <Link to="https://blogblog.club/">📜 BlogBlog.Club：一起來寫部落格</Link>
+            </li>
+            <li>
+              <Link to="/verify">🪩 Discord 社群驗證區</Link>
+            </li>
+            <li>
+              <Link to="/docs/update">📜 網站更新紀錄</Link>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
@@ -39,20 +92,8 @@ export default function Home() {
           <Feature
             icon="🌟"
             title="貼文"
-            description="你可以把這裡想像成我的社群媒體頁面，從 2026 年起，主要會把一些文章發在這裡。"
+            description="你可以把這裡想像成我的社群媒體頁面，從 2026 年起，主要會把一些文章發在這裡"
             to="/blog"
-          />
-          <Feature
-            icon="🗄️"
-            title="所有貼文列表"
-            description="這裡放了我所有寫過的 Blog！"
-            to="/blog/archive"
-          />
-          <Feature
-            icon="🎲"
-            title="隨機"
-            description="按一下會有隨機貼文，看看運氣好不好有沒有機會抽到曾老師"
-            to="/random"
           />
           <Feature
             icon="📚"
@@ -67,7 +108,19 @@ export default function Home() {
             to="/app"
           />
           <Feature
-            icon="👤"
+            icon="🎲"
+            title="隨機"
+            description="按一下會有隨機貼文，看看運氣好不好有沒有機會抽到曾老師"
+            to="/random"
+          />
+          <Feature
+            icon="🖨️"
+            title="所有貼文列表"
+            description="這裡放了我所有寫過的 Blog"
+            to="/blog/archive"
+          />
+          <Feature
+            icon="🫂"
             title="關於"
             description="歡迎認識我！"
             to="/about"
@@ -75,10 +128,13 @@ export default function Home() {
         </div>
 
 
+
+
+
         <section>
           <div className="section_title">
             <span>📺</span>
-            <span>最新 YouTube 影片</span>
+            <span>最新 Youtube 影片</span>
           </div>
           <div className="youtube_card">
             <div className="youtube-s">
@@ -88,58 +144,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="info_section">
-          <div className="info_grid">
-            <div className="info_card">
-              <h3>🛠️ 其他小技巧！</h3>
-              <ul className="info_list">
-                <li>
-                  <b>RSS 訂閱</b>：你可以用 RSS 追蹤我
-                  <div className="rss_copy_wrapper">
-                    <code>https://kaiblog.is-a.dev/blog/rss.xml</code>
-                    <button
-                      className="copy_btn"
-                      onClick={() => {
-                        navigator.clipboard.writeText('https://kaiblog.is-a.dev/blog/rss.xml');
-                        const btn = document.getElementById('rss_copy_btn');
-                        btn.innerText = '✅ 已複製！';
-                        setTimeout(() => { btn.innerText = '📋 複製網址'; }, 2000);
-                      }}
-                      id="rss_copy_btn"
-                    >
-                      📋 複製網址
-                    </button>
-                  </div>
-                </li>
-                <li>
-                  <b>全站搜尋</b>：按下 <code>Ctrl + K</code> 即可搜尋關鍵字！
-                </li>
-                <li>
-                  <b>聯繫我</b>：有任何建議，歡迎寫信至 <code>kaigithub0621@gmail.com</code>
-                </li>
-              </ul>
-            </div>
-            <div className="info_card">
-              <h3>🌐 其他資訊</h3>
-              <ul className="info_list">
-                <li>
-                  <Link to="/docs/resolve/resolvepackV3-update">🎬 ResolveV pack V3 下載</Link>
-                </li>
-                <li>
-                  <Link to="https://blogblog.club/">📜 BlogBlog.Club 官網</Link>
-                </li>
-                <li>
-                  <Link to="/verify">🪩 Discord 社群驗證區</Link>
-                </li>
-                <li>
-                  <Link to="/docs/update">📜 網站更新紀錄</Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-
+        <InfoSection />
 
         <div className="contact_section">
           <div className="contact_info">
