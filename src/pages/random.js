@@ -16,25 +16,34 @@ export default function RandomPage() {
     const allPaths = generatedRoutes
       .map(route => route.path)
       .filter(path => {
-        return (
-          path.includes('/blog/') &&       // 核心：路徑必須包含 /blog/
-          !path.includes('/tags') &&      // 排除標籤彙整頁
-          !path.includes('/archive') &&   // 排除封存頁
-          !path.includes('/page/') &&      // 排除部落格的分頁 (如 /blog/page/2)
-          path !== '/blog' &&             // 排除部落格主頁
-          path !== '/blog/' &&            // 排除部落格主頁(帶斜線)
-          path !== '/' &&                 // 排除網站首頁
-          path !== '/404.html' &&         // 排除 404
-          !path.includes('search') &&     // 排除搜尋頁
-          !path.includes('*') &&          // 排除萬用字元路由
-          !path.includes('/__docusaurus/') // 排除開發環境內部路徑
-        );
+        // 判定是否為內容頁（部落格或筆記）
+        const isBlog = path.startsWith('/blog/');
+        const isDoc = path.startsWith('/docs/');
+
+        if (!isBlog && !isDoc) return false;
+
+        // 排除非文章頁面（如分頁、標籤、存檔、作者等）
+        const isExcluded =
+          path.includes('/tags') ||
+          path.includes('/archive') ||
+          path.includes('/page/') ||
+          path.includes('/author') || // 排除作者頁
+          path.includes('/category/') || // 排除分類頁
+          path === '/blog' || path === '/blog/' ||
+          path === '/docs' || path === '/docs/' ||
+          path === '/' ||
+          path === '/404.html' ||
+          path.includes('search') ||
+          path.includes('*') ||
+          path.includes('/__docusaurus/');
+
+        return !isExcluded;
       });
 
     // 2. 隨機選取邏輯
     if (allPaths.length > 0) {
       const randomPath = allPaths[Math.floor(Math.random() * allPaths.length)];
-      
+
       // 設定 1 秒延遲，增加儀式感並確保路由已就緒
       const timer = setTimeout(() => {
         history.replace(randomPath);
@@ -69,7 +78,7 @@ export default function RandomPage() {
             <p style={{ color: 'var(--ifm-color-emphasis-600)', fontSize: '1.2rem' }}>
               請稍候，正在從部落格中隨機挑選內容。
             </p>
-            
+
             {/* 加載動畫 */}
             <div className="loading-container">
               <span className="dot">.</span>
@@ -79,9 +88,9 @@ export default function RandomPage() {
           </>
         ) : (
           <div>
-            <h1 style={{ color: '#ff4d4f' }}>抱歉，找不到部落格文章</h1>
-            <p>請確認您的 blog 資料夾下是否有文章，或路徑設定是否正確。</p>
-            <button 
+            <h1 style={{ color: '#ff4d4f' }}>抱歉，找不到任何內容</h1>
+            <p>請確認您的 blog 或 docs 資料夾下是否有文章，或路徑設定是否正確。</p>
+            <button
               onClick={() => history.push('/')}
               style={{
                 padding: '10px 20px',

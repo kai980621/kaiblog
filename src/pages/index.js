@@ -136,11 +136,9 @@ export default function Home() {
             <span>📺</span>
             <span>最新 Youtube 影片</span>
           </div>
-          <div className="youtube_card">
-            <div className="youtube-s">
-              <iframe width="560" height="315" src="https://www.youtube.com/embed/CXlGKZLyq2A?si=RRwCeYBspU1BiFoZ" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
-              <p style={{ marginTop: '1.5rem', fontWeight: '800', fontSize: '1.2rem', textAlign: 'center', color: 'var(--ifm-color-primary)' }}>KAI丨電影配樂練習</p>
-            </div>
+          <div className="youtube-s">
+            <iframe width="100%" height="300" src="https://www.youtube.com/embed/CXlGKZLyq2A?si=RRwCeYBspU1BiFoZ" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+            <p style={{ marginTop: '1.5rem', fontWeight: '800', fontSize: '1.2rem', textAlign: 'center', color: 'var(--ifm-color-primary)' }}>KAI丨電影配樂練習</p>
           </div>
         </section>
 
@@ -148,11 +146,11 @@ export default function Home() {
 
         <div className="contact_section">
           <div className="contact_info">
-            <h2>加入 KAI 的社群</h2>
-            <p>歡迎加入 Discord 與我交流，分享開發心得協助網站更新。</p>
+            <h2>加入 KAI STUDIO</h2>
+            <p>歡迎搶先加入 Discord 搶先體驗會員</p>
           </div>
           <Link className="contact_btn" to="https://discord.gg/ze9rM8pEPy">
-            🔗 加入 Discord
+            ⋈ 加入 Discord
           </Link>
         </div>
       </main>
