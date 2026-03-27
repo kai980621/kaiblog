@@ -8,7 +8,7 @@ function HomepageHero() {
   return (
     <div className="homepage_hero">
       <h1>KAI BLOG</h1>
-      <p>這裡是我發廢文和分享經驗的地方。這個網站分為以下幾個區域：</p>
+      <p>這裡是我發廢文的地方。這個網站分為以下幾個區域：</p>
     </div>
   );
 }
@@ -56,6 +56,9 @@ function InfoSection() {
             </li>
             <li>
               <Link to="/docs/update">📜 網站更新紀錄</Link>
+            </li>
+            <li>
+              <Link to="https://www.youtube.com/@kaistudio-621">📺 YouTube (KAI STUDIO)</Link>
             </li>
           </ul>
         </div>
@@ -122,8 +125,8 @@ export default function Home() {
             <span>最新 Youtube 影片</span>
           </div>
           <div className="youtube-s">
-            <iframe width="100%" height="300" src="https://www.youtube.com/embed/CXlGKZLyq2A?si=RRwCeYBspU1BiFoZ" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
-            <p style={{ marginTop: '1.5rem', fontWeight: '800', fontSize: '1.2rem', textAlign: 'center', color: 'var(--ifm-color-primary)' }}>KAI丨電影配樂練習</p>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/bD7kN9YuHj0?si=waWCmYFeOGNVCMSd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <p style={{ marginTop: '1.5rem', fontWeight: '800', fontSize: '1.2rem', textAlign: 'center', color: 'var(--ifm-color-primary)' }}>我把 MAYDAY 變成 鋼琴練習曲了？</p>
           </div>
         </section>
 

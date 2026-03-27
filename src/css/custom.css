@@ -206,13 +206,22 @@ a.link:hover {
 
 [data-theme='dark'] .contact_btn {
   background: rgba(255, 255, 255, 0.15);
-  color: white;
+  color: rgb(0, 191, 255);
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .contact_btn:hover {
-  background: white;
+  background: rgb(0, 0, 0);
   transform: scale(1.05);
+  text-decoration: none;
+  color: #ffffff;
+}
+
+[data-theme='dark'] .contact_btn:hover {
+  background: rgb(0, 166, 255);
+  transform: scale(1.05);
+  text-decoration: none;
+  color: rgb(255, 255, 255);
 }
 
 /* Removed translateY */
@@ -275,82 +284,6 @@ a.link:hover {
   font-family: 'DM Mono', monospace;
 }
 
-.rss_copy_wrapper {
-  margin-top: 1rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.4rem;
-  border-radius: 14px;
-  background: rgba(66, 158, 238, 0.05); /* 淡藍色背景 */
-  border: 1px solid rgba(66, 158, 238, 0.1);
-  transition: all 0.3s ease;
-}
-
-.rss_copy_wrapper:hover {
-  background: rgba(66, 158, 238, 0.08);
-  border-color: rgba(66, 158, 238, 0.2);
-}
-
-[data-theme='dark'] .rss_copy_wrapper {
-  background: rgba(255, 255, 255, 0.03);
-  border-color: rgba(255, 255, 255, 0.05);
-}
-
-.copy_btn {
-  background: rgba(66, 158, 238, 0.1); /* 平常是淡色 */
-  color: var(--ifm-color-primary);
-  border: 1px solid rgba(66, 158, 238, 0.2);
-  padding: 0.4rem 1rem;
-  border-radius: 10px;
-  font-size: 0.85rem;
-  font-weight: 800;
-  cursor: pointer;
-  flex-shrink: 0;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-}
-
-.copy_btn:hover {
-  background: var(--ifm-color-primary); /* 移上去才變實色 */
-  color: white;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(66, 158, 238, 0.25);
-}
-
-.copy_btn:active {
-  transform: translateY(0);
-}
-
-/* ============================================================
-3. /search Page (Google Style)
-============================================================ */
-#search-page-input {
-  display: block;
-  width: 100%;
-  max-width: 600px;
-  margin: 2rem auto !important;
-  border-radius: 24px !important;
-  border: 1px solid #dfe1e5 !important;
-  padding: 0.75rem 1.5rem 0.75rem 3rem !important;
-  background: white url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%2370757a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>') no-repeat 1rem center !important;
-  box-shadow: none !important;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
-}
-
-#search-page-input:focus {
-  border-color: transparent !important;
-  box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28) !important;
-}
-
-[data-theme='dark'] #search-page-input {
-  background-color: #303134 !important;
-  border-color: #5f6368 !important;
-  color: white !important;
-}
-
 /* ============================================================
 4. Blog Post Images
 ============================================================ */
@@ -406,7 +339,7 @@ a.link:hover {
 
   .features_grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 0.75rem;
+    gap: 1rem;
   }
 
   .feature_card {
@@ -468,9 +401,12 @@ a.link:hover {
 img.photo-border,
 .photo-border img {
   display: block;
-  width: 100% !important;        /* 電腦端填滿寬度 */
-  height: 400px !important;       /* 固定高度，避免滑太久 */
-  object-fit: cover;              /* 核心：圖片會填滿空間且不變形（會稍微裁切邊緣，像封面照） */
+  width: 100% !important;
+  /* 電腦端填滿寬度 */
+  height: 400px !important;
+  /* 固定高度，避免滑太久 */
+  object-fit: cover;
+  /* 核心：圖片會填滿空間且不變形（會稍微裁切邊緣，像封面照） */
   margin: 0 auto;
   border-radius: 8px;
   transition: transform 0.3s ease;
@@ -485,8 +421,10 @@ img.photo-border,
 
   img.photo-border,
   .photo-border img {
-    width: 85% !important;        /* 手機端寬度縮小，左右留白較多 */
-    height: 180px !important;      /* 手機端高度大幅減少，完全不用滑 */
+    width: 85% !important;
+    /* 手機端寬度縮小，左右留白較多 */
+    height: 180px !important;
+    /* 手機端高度大幅減少，完全不用滑 */
     border-radius: 6px;
   }
 }
