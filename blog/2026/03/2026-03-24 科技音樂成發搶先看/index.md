@@ -1,6 +1,6 @@
 ---
 slug: digital-perform
-title: 科技音樂成果發表
+title: 科技音樂成果發表搶先看
 tags: [編曲]
 description: "從五線譜的邏輯架構，到數位音訊工作站的音色渲染，見證科技與音樂的碰撞。"
 date: 2026-03-24T08:00
