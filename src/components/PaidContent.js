@@ -1,15 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-export default function PaidContent({ children }) {
+export default function PaidContent({ children, id = 'default' }) {
   const [isUnlocked, setIsUnlocked] = useState(false);
   const [passcode, setPasscode] = useState('');
   const [error, setError] = useState(false);
   const [isInputFocused, setIsInputFocused] = useState(false);
+  const localStorageKey = `kai_blog_unlocked_${id}`;
   const CORRECT_PASSCODE = '0809';
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const savedState = localStorage.getItem(localStorageKey);
+      if (savedState === 'true') {
+        setIsUnlocked(true);
+      }
+    }
+  }, [localStorageKey]);
 
   const handleUnlock = () => {
     if (passcode === CORRECT_PASSCODE) {
       setIsUnlocked(true);
+      localStorage.setItem(localStorageKey, 'true');
       setError(false);
     } else {
       setError(true);
@@ -55,17 +66,17 @@ export default function PaidContent({ children }) {
             transition: 'all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
             borderColor: error ? '#ff4d4f' : isInputFocused ? 'var(--ifm-color-primary)' : 'var(--glass-border)'
           }}>
-            <div style={{ 
-              fontSize: '3rem', 
+            <div style={{
+              fontSize: '3rem',
               marginBottom: '1rem',
               filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.1))',
-              animation: 'float 3s ease-in-out infinite' 
+              animation: 'float 3s ease-in-out infinite'
             }}>
               🔏
             </div>
-            <h3 style={{ 
-              fontSize: '1.6rem', 
-              fontWeight: '900', 
+            <h3 style={{
+              fontSize: '1.6rem',
+              fontWeight: '900',
               marginBottom: '0.5rem',
               letterSpacing: '-0.5px',
               background: 'linear-gradient(to right, var(--ifm-color-primary), #6CC8FF)',
@@ -74,17 +85,17 @@ export default function PaidContent({ children }) {
             }}>
               付費解鎖更多
             </h3>
-            <p style={{ 
-              fontSize: '0.95rem', 
-              opacity: 0.7, 
+            <p style={{
+              fontSize: '0.95rem',
+              opacity: 0.7,
               marginBottom: '1.8rem',
               fontWeight: '500'
             }}>
               輸入專屬解鎖碼以閱覽完整篇幅
             </p>
-            
+
             <div style={{ marginBottom: '1.2rem', position: 'relative' }}>
-              <input 
+              <input
                 type="password"
                 placeholder="密碼：08XX"
                 value={passcode}
@@ -106,10 +117,10 @@ export default function PaidContent({ children }) {
                 }}
               />
               {error && (
-                <p style={{ 
-                  color: '#ff4d4f', 
-                  fontSize: '0.85rem', 
-                  marginTop: '8px', 
+                <p style={{
+                  color: '#ff4d4f',
+                  fontSize: '0.85rem',
+                  marginTop: '8px',
                   fontWeight: '700',
                   animation: 'shake 0.4s ease-in-out'
                 }}>
@@ -118,7 +129,7 @@ export default function PaidContent({ children }) {
               )}
             </div>
 
-            <button 
+            <button
               onClick={handleUnlock}
               style={{
                 width: '100%',
@@ -147,7 +158,7 @@ export default function PaidContent({ children }) {
           </div>
         </div>
       )}
-      
+
       <div style={{
         filter: isUnlocked ? 'none' : 'blur(15px)',
         opacity: isUnlocked ? 1 : 0.3,
