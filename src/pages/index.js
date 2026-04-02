@@ -46,7 +46,7 @@ function InfoSection() {
           <h3>🌐 其他資訊</h3>
           <ul className="info_list">
             <li>
-              <Link to="/docs/resolve/resolvepackV3-update">🎬 達芬奇模板：ResolveV3Pack 下載</Link>
+              <Link to="/docs/resolve/resolvepackV4">🎬 達芬奇模板：ResolveV4Pack 重磅更新</Link>
             </li>
             <li>
               <Link to="https://blogblog.club/">📜 BlogBlog.Club：一起來寫部落格</Link>
