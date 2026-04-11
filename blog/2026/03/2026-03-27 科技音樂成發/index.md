@@ -6,6 +6,8 @@ description: "從五線譜的邏輯架構，到數位音訊工作站的音色渲
 date: 2026-03-27T08:00
 ---
 
+import PaidContent from '@site/src/components/PaidContent';
+
 ## 科技音樂成果發表倒數 17 天 💩
 
 MAYDAY ETUDES NO.03 編曲版！！   
@@ -33,6 +35,10 @@ MAYDAY ETUDES NO.03 編曲版！！
 
 ## 🎵 原版譜PDF下載！
 
+<PaidContent id="mayday-etude-03">
+
 ### 🔒 [點我前往下載](https://www.mediafire.com/file/4iriit5aah1wi9a/MAYDAY3_-_Full_score_-_01_Flow_1.pdf/file)
+
+</PaidContent>
 
 ### No.04   精彩製作中！

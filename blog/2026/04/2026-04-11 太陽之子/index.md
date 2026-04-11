@@ -6,15 +6,22 @@ tags: [五月天]
 date: 2026-04-11T08:00
 ---
 
+import PaidContent from '@site/src/components/PaidContent';
+
 ## 久違的更新
 
 花了我 `2小時`的時間製作：太陽之子 鋼琴版
 
+<PaidContent id="sun-piano">
+
+### 🔐 付費解鎖！
 ### 🔒 [點我前往下載 PDF](https://www.mediafire.com/file/lfvodlfnu9bywr8/Children_of_Sun.pdf/file)
 
+</PaidContent>
 
-> KAI STUDIO (最後更新：2026-02-12)
-- 目前：23位訂閱者
+
+> KAI STUDIO (最後更新：2026-04-11)
+- 目前：25位訂閱者
 
 <div class="youtube-s">
 

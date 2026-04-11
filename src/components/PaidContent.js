@@ -7,7 +7,7 @@ export default function PaidContent({ children, id = 'default' }) {
   const [isInputFocused, setIsInputFocused] = useState(false);
   const contentRef = useRef(null);
   const localStorageKey = `kai_blog_unlocked_${id}`;
-  const CORRECT_PASSCODE = 'MAYDAY0329';
+  const CORRECT_PASSCODE = '0621';
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -51,7 +51,15 @@ export default function PaidContent({ children, id = 'default' }) {
   };
 
   return (
-    <div style={{ position: 'relative', margin: '2rem 0', borderRadius: '20px', overflow: 'hidden' }}>
+    <div style={{ 
+      position: 'relative', 
+      margin: '2rem 0', 
+      borderRadius: '24px', 
+      overflow: isUnlocked ? 'visible' : 'hidden',
+      minHeight: isUnlocked ? '0' : '450px',
+      display: 'flex',
+      flexDirection: 'column'
+    }}>
       {!isUnlocked && (
         <div style={{
           position: 'absolute',
@@ -63,19 +71,20 @@ export default function PaidContent({ children, id = 'default' }) {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          background: 'rgba(255, 255, 255, 0.05)',
-          backdropFilter: 'blur(20px)',
-          WebkitBackdropFilter: 'blur(20px)',
-          padding: '1rem',
-          textAlign: 'center'
+          background: 'rgba(255, 255, 255, 0.02)',
+          backdropFilter: 'blur(25px)',
+          WebkitBackdropFilter: 'blur(25px)',
+          padding: '1.5rem',
+          textAlign: 'center',
+          borderRadius: '24px'
         }}>
           <div style={{
             background: 'var(--glass-bg)',
             padding: '2.5rem 2rem',
-            borderRadius: '28px',
-            boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
+            borderRadius: '32px',
+            boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)',
             border: '1px solid var(--glass-border)',
-            maxWidth: '380px',
+            maxWidth: '400px',
             width: '100%',
             animation: 'fadeInUp 0.6s ease-out',
             transform: error ? 'translateX(10px)' : 'none',
@@ -83,7 +92,7 @@ export default function PaidContent({ children, id = 'default' }) {
             borderColor: error ? '#ff4d4f' : isInputFocused ? 'var(--ifm-color-primary)' : 'var(--glass-border)'
           }}>
             <div style={{
-              fontSize: '3rem',
+              fontSize: '3.5rem',
               marginBottom: '1rem',
               filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.1))',
               animation: 'float 3s ease-in-out infinite'
@@ -91,29 +100,33 @@ export default function PaidContent({ children, id = 'default' }) {
               🔏
             </div>
             <h3 style={{
-              fontSize: '1.6rem',
+              fontSize: '1.8rem',
               fontWeight: '900',
-              marginBottom: '0.5rem',
+              marginBottom: '0.8rem',
               letterSpacing: '-0.5px',
               background: 'linear-gradient(to right, var(--ifm-color-primary), #6CC8FF)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent'
             }}>
-              付費解鎖更多
+              付費內容已鎖定
             </h3>
             <p style={{
-              fontSize: '0.95rem',
-              opacity: 0.7,
-              marginBottom: '1.8rem',
-              fontWeight: '500'
+              fontSize: '1rem',
+              opacity: 0.8,
+              marginBottom: '2rem',
+              fontWeight: '500',
+              lineHeight: '1.5'
             }}>
-              輸入專屬解鎖碼以閱覽完整內容
+              輸入專屬解鎖碼以閱覽完整內容<br/>
+              <span style={{ fontSize: '0.85rem', color: 'var(--ifm-color-primary)', fontWeight: 'bold' }}>
+                💡 提示：我的生日
+              </span>
             </p>
 
             <div style={{ marginBottom: '1.2rem', position: 'relative' }}>
               <input
                 type="password"
-                placeholder="10 位數字密碼"
+                placeholder="4 位數字密碼"
                 value={passcode}
                 onChange={(e) => setPasscode(e.target.value)}
                 onKeyPress={handleKeyPress}
@@ -121,26 +134,27 @@ export default function PaidContent({ children, id = 'default' }) {
                 onBlur={() => setIsInputFocused(false)}
                 style={{
                   width: '100%',
-                  padding: '14px 16px',
-                  borderRadius: '12px',
+                  padding: '16px',
+                  borderRadius: '16px',
                   border: '2px solid transparent',
-                  background: 'rgba(0,0,0,0.05)',
-                  fontSize: '1.1rem',
+                  background: 'rgba(0,0,0,0.08)',
+                  fontSize: '1.2rem',
                   textAlign: 'center',
                   outline: 'none',
                   transition: 'all 0.3s',
-                  boxShadow: isInputFocused ? '0 0 0 3px rgba(66, 158, 238, 0.15)' : 'none'
+                  boxShadow: isInputFocused ? '0 0 0 4px rgba(66, 158, 238, 0.2)' : 'none',
+                  color: 'inherit'
                 }}
               />
               {error && (
                 <p style={{
                   color: '#ff4d4f',
-                  fontSize: '0.85rem',
-                  marginTop: '8px',
+                  fontSize: '0.9rem',
+                  marginTop: '10px',
                   fontWeight: '700',
                   animation: 'shake 0.4s ease-in-out'
                 }}>
-                  ❌ 密碼錯誤，請檢查後再試一次
+                  ❌ 密碼錯誤，請再試一次
                 </p>
               )}
             </div>
@@ -149,27 +163,27 @@ export default function PaidContent({ children, id = 'default' }) {
               onClick={handleUnlock}
               style={{
                 width: '100%',
-                padding: '14px 28px',
+                padding: '16px 28px',
                 fontSize: '1.1rem',
                 fontWeight: '800',
                 color: 'white',
                 background: error ? '#ff4d4f' : 'var(--hero-gradient)',
                 border: 'none',
-                borderRadius: '14px',
+                borderRadius: '16px',
                 cursor: 'pointer',
                 transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
-                boxShadow: '0 10px 15px -3px rgba(66, 158, 238, 0.3)'
+                boxShadow: '0 10px 20px -5px rgba(66, 158, 238, 0.4)'
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'scale(1.03) translateY(-2px)';
-                e.currentTarget.style.boxShadow = '0 15px 25px -5px rgba(66, 158, 238, 0.4)';
+                e.currentTarget.style.transform = 'scale(1.02) translateY(-2px)';
+                e.currentTarget.style.boxShadow = '0 15px 30px -5px rgba(66, 158, 238, 0.5)';
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = 'scale(1) translateY(0)';
-                e.currentTarget.style.boxShadow = '0 10px 15px -3px rgba(66, 158, 238, 0.3)';
+                e.currentTarget.style.boxShadow = '0 10px 20px -5px rgba(66, 158, 238, 0.4)';
               }}
             >
-              🚀 付費解鎖
+              🚀 立即解鎖
             </button>
           </div>
         </div>
@@ -178,13 +192,14 @@ export default function PaidContent({ children, id = 'default' }) {
       <div
         ref={contentRef}
         style={{
-          filter: isUnlocked ? 'none' : 'blur(15px)',
-          opacity: isUnlocked ? 1 : 0.3,
+          filter: isUnlocked ? 'none' : 'blur(20px)',
+          opacity: isUnlocked ? 1 : 0.2,
           maxHeight: isUnlocked ? 'none' : '400px',
-          transition: 'all 1s cubic-bezier(0.4, 0, 0.2, 1)',
+          transition: 'all 1.2s cubic-bezier(0.4, 0, 0.2, 1)',
           pointerEvents: isUnlocked ? 'auto' : 'none',
           userSelect: isUnlocked ? 'auto' : 'none',
-          overflow: 'hidden'
+          overflow: 'hidden',
+          flex: 1
         }}
       >
         {children}
