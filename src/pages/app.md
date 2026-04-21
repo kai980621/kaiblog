@@ -5,7 +5,7 @@ slug: /app
 
 # 📱 KAI 電腦裡有什麼 `/app`
 
-- 最後更新：2026-04-02
+- 最後更新：2026-04-17
 - **總共 `39` 個 軟體**
 > 這是我在 Mac 上的軟體清單～
 
@@ -65,8 +65,7 @@ slug: /app
 
 ## 🎮 遊戲與創作
 36. **Roblox** ㄧ 我唯一玩的遊戲
-37. **Roblox Studio** ㄧ 做遊戲非常簡單，推薦克拉克
 
 ## 💩 官方資源管理
-38. **Steinberg Download Manager** ㄧ Steinberg 產品資源下載中心
-39. **Steinberg Library Manager** ㄧ 管理 VST 音色庫路徑與授權的工具
+37. **Steinberg Download Manager** ㄧ Steinberg 產品資源下載中心
+38. **Steinberg Library Manager** ㄧ 管理 VST 音色庫路徑與授權的工具
