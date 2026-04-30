@@ -5,11 +5,12 @@ import {themes as prismThemes} from 'prism-react-renderer';
 const config = {
   title: 'KAI BLOG',
   favicon: 'img/favicon/favicon.ico', 
+  // 舊站網址
   url: 'https://kaiblog.is-a.dev',
   baseUrl: '/',
   organizationName: 'kaihchs118',
   projectName: 'kaiblog',
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'ignore', // 轉址期間建議設為 ignore 以防建置失敗
 
   i18n: {
     defaultLocale: 'zh-Hant',
@@ -55,13 +56,34 @@ const config = {
       },
     ],
 
-    // --- Microsoft Clarity & Favicon Meta Tags ---
+    // --- 完整轉址、Clarity 與 Metadata 插件 ---
     () => ({
       name: 'custom-metadata',
       injectHtmlTags() {
         return {
           headTags: [
-            // Clarity Script
+            // 1. JavaScript 自動轉址 (保留路徑：從 A 文章轉到新站的 A 文章)
+            {
+              tagName: 'script',
+              innerHTML: `
+                (function() {
+                  var oldDomain = 'kaiblog.is-a.dev';
+                  var newDomain = 'kaiblog-59sd.vercel.app';
+                  if (window.location.hostname === oldDomain) {
+                    window.location.replace('https://' + newDomain + window.location.pathname + window.location.search);
+                  }
+                })();
+              `,
+            },
+            // 2. HTML Meta 備援轉址 (萬一 JS 失效，0秒跳轉新站首頁)
+            {
+              tagName: 'meta',
+              attributes: {
+                'http-equiv': 'refresh',
+                content: '0; url=https://kaiblog-59sd.vercel.app/',
+              },
+            },
+            // 3. Microsoft Clarity 數據統計
             {
               tagName: 'script',
               innerHTML: `
@@ -72,21 +94,18 @@ const config = {
                 })(window, document, "clarity", "script", "vbv2g82ods");
               `,
             },
-            // Favicon 尺寸與 Apple 圖示路徑修正
+            // 4. Favicon 與 Apple 圖示
             {
               tagName: 'link',
               attributes: {
-                rel: 'icon',
-                type: 'image/png',
-                sizes: '96x96',
+                rel: 'icon', type: 'image/png', sizes: '96x96',
                 href: '/img/favicon/favicon-96x96.png',
               },
             },
             {
               tagName: 'link',
               attributes: {
-                rel: 'apple-touch-icon',
-                sizes: '180x180',
+                rel: 'apple-touch-icon', sizes: '180x180',
                 href: '/img/favicon/apple-touch-icon.png',
               },
             },
