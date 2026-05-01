@@ -62,21 +62,8 @@ const config = {
       injectHtmlTags() {
         return {
           headTags: [
-            // 1. JavaScript 自動轉址 (保留路徑：從 A 文章轉到新站的 A 文章)
-            {
-              tagName: 'script',
-              innerHTML: `
-                (function() {
-                  var oldDomain = 'kaiblog.is-a.dev';
-                  var newDomain = 'kaiblog-59sd.vercel.app';
-                  if (window.location.hostname === oldDomain) {
-                    window.location.replace('https://' + newDomain + window.location.pathname + window.location.search);
-                  }
-                })();
-              `,
-            },
 
-            // 3. Microsoft Clarity 數據統計
+            // 1. Microsoft Clarity 數據統計
             {
               tagName: 'script',
               innerHTML: `
@@ -87,7 +74,7 @@ const config = {
                 })(window, document, "clarity", "script", "vbv2g82ods");
               `,
             },
-            // 4. Favicon 與 Apple 圖示
+            // 2. Favicon 與 Apple 圖示
             {
               tagName: 'link',
               attributes: {
@@ -154,7 +141,7 @@ const config = {
             title: '個人資訊',
             items: [
               { label: '關於我', to: '/about' },
-              { label: '愛用', to: '/use' },
+              // { label: '愛用', to: '/use' },
               { label: '應用程式', to: '/app' },
               { label: '更新紀錄', to: '/docs/update' },
             ],
