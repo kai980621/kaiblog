@@ -227,3 +227,86 @@ html.lock-paid-content [class*="tableOfContents"] [href*="%E4%BB%98%E8%B2%BB%E8%
 [data-theme='dark'] .custom-btn:hover {
   box-shadow: none;
 }
+
+/* ============================================================
+8. Progress Section
+============================================================ */
+.progress-container {
+  background: #f1f9ff;
+  border: 1px solid #d0e8ff;
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  transition: all 0.3s ease;
+}
+
+.progress-container:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(66, 158, 238, 0.1);
+}
+
+
+[data-theme='dark'] .progress-container {
+  background: #1e293b;
+  border-color: #334155;
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.2rem;
+}
+
+.progress-title {
+  font-weight: 800;
+  font-size: 1.1rem;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.progress-percentage {
+  font-weight: 900;
+  color: var(--ifm-color-primary);
+  font-size: 1.2rem;
+}
+
+.progress-bar-bg {
+  background: rgba(0, 0, 0, 0.05);
+  height: 10px;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+
+[data-theme='dark'] .progress-bar-bg {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.progress-bar-fill {
+  background: linear-gradient(90deg, var(--ifm-color-primary), #0051ff);
+  height: 100%;
+  border-radius: 5px;
+  transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.progress-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.progress-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.progress-item.done {
+  opacity: 0.6;
+  text-decoration: line-through;
+}
