@@ -40,12 +40,4 @@ import PaidContent from '@site/src/components/PaidContent';
 
 > **製作筆記**：從樂譜版到編曲版，重點在於「音色設計 (Sound Design)」的選擇，利用科技手段打破傳統樂器的物理限制。
 
-## 🎵 原版譜PDF下載！
-
-<PaidContent id="mayday-etude-03">
-
-### 🔒 [點我前往下載](https://www.mediafire.com/file/4iriit5aah1wi9a/MAYDAY3_-_Full_score_-_01_Flow_1.pdf/file)
-
-</PaidContent>
-
 ### No.04   精彩製作中！

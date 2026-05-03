@@ -7,15 +7,29 @@ authors: [KAI]
 tags: [達芬奇模板]
 date: 2025-01-28
 ---
+
+import PaidContent01 from '@site/src/components/PaidContent01';
+
 - 發布時間：01-28
+
+:::warning 超級警告 ！！！
+目前有更新的版本   
+請至首頁查看！！！！！！！   
+:::
 # 達芬奇模板V3
 我終於製作完成 `ResolveV3Pack`
 替達芬奇製作出許多模板，均為免費模板
-:::danger 趕快下載
 
+### 🔐 付費解鎖！
+
+<PaidContent01 id="v3">
+
+:::danger 趕快下載
 1. [🔥 ITCH 下載 V3 超推薦！！](https://kaiblog.itch.io/resolvev3pack)
 2. [✨ MediaFire 下載 V3](https://www.mediafire.com/file/99vzygeozte5suy/ResolveV3.zip/file)
 :::
+
+</PaidContent01>
 
 **相信我，他們都比 Google Drive 好！**
 

@@ -12,11 +12,10 @@ import PaidContent from '@site/src/components/PaidContent';
 
 花了我 `2小時`的時間製作：Piano Classic Film No.01
 
-<PaidContent id="sun-piano">
-
 ### 🔐 付費解鎖！
-### 🔒 [點我前往下載 PDF](https://www.mediafire.com/file/h4okc9nfl501nk3/Piano1_2026_-_Score.pdf/file)
+<PaidContent id="sun-piano1">
 
+<a href="https://www.mediafire.com/file/h4okc9nfl501nk3/Piano1_2026_-_Score.pdf/file" className="custom-btn" target="_blank">🔒 點我前往下載 PDF</a>
 </PaidContent>
 {/* truncate */}
 

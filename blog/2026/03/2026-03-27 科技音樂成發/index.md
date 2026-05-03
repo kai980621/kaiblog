@@ -33,12 +33,11 @@ MAYDAY ETUDES NO.03 編曲版！！
 <iframe width="560" height="315" src="https://www.youtube.com/embed/NIDVdo82CvE?si=MesfhWcJxNsfkPGK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </div>
 
-## 🎵 原版譜PDF下載！
+## 🔒 原版譜PDF下載！
 
 <PaidContent id="mayday-etude-03">
 
-### 🔒 [點我前往下載](https://www.mediafire.com/file/4iriit5aah1wi9a/MAYDAY3_-_Full_score_-_01_Flow_1.pdf/file)
-
+<a href="https://www.mediafire.com/file/4iriit5aah1wi9a/MAYDAY3_-_Full_score_-_01_Flow_1.pdf/file" className="custom-btn" target="_blank">🔒 前往下載</a>
 </PaidContent>
 
 ### No.04   精彩製作中！

@@ -13,9 +13,10 @@ import PaidContent from '@site/src/components/PaidContent';
 花了我一週的時間製作：MAYDAY Etude No.02   
 為了上手 Dorico 也是拼了   
 
+## 付費解鎖！
 <PaidContent id="mayday-etude-02">
 
-### 🔒 [點我前往下載](https://www.mediafire.com/file/eu9nen3txsu05er/MAYDAY2.pdf/file)
+<a href="https://www.mediafire.com/file/eu9nen3txsu05er/MAYDAY2.pdf/file" className="custom-btn" target="_blank">🔒 前往下載</a>
 
 </PaidContent>
 

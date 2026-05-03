@@ -11,10 +11,11 @@ import PaidContent from '@site/src/components/PaidContent';
 ## No.01 終於來了
 花了我一週的時間製作：MAYDAY Etude No.01   
 `使用軟體：Finale`   
-
+## 🔒 付費解鎖
 <PaidContent id="mayday-etude-01">
 
-### 🔒 [點我前往下載](https://www.mediafire.com/file/8pe205nawbqh0bm/MAYDAY1.pdf/file)
+<a href="https://www.mediafire.com/file/8pe205nawbqh0bm/MAYDAY1.pdf/file" className="custom-btn" target="_blank">🔒 前往下載</a>
+
 
 </PaidContent>
 

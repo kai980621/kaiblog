@@ -12,9 +12,11 @@ date: 2026-04-05T08:00
 # 達芬奇模板V4
 重磅更新來了！ `ResolveV4Pack`
 替達芬奇製作出許多模板，均為免費模板
-:::warning 趕快下載
+:::danger 趕快下載
 
 1. [🔥 ITCH 下載 V4 超推薦！！](https://kaiblog.itch.io/resolveV4pack)
+
+<a href="https://kaiblog.itch.io/resolveV4pack" className="custom-btn" target="_blank">🔥 ITCH 下載 V4 超推薦！！</a>
 2. [✨ MediaFire 下載 V4](https://www.mediafire.com/file/cc8ipkm9b2az1my/ResolveV4.zip/file)
 :::
 
