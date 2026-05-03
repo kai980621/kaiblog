@@ -25,8 +25,14 @@ html[data-theme='dark'] {
   --docusaurus-highlighted-code-line-bg: rgba(107, 180, 244, 0.28);
 }
 
-body { font-family: 'Huninn', sans-serif; }
-button, a { box-shadow: none !important; }
+body {
+  font-family: 'Huninn', sans-serif;
+}
+
+button,
+a {
+  box-shadow: none !important;
+}
 
 /* ============================================================
 2. ✨ Netflix 風格：互動懸停效果
@@ -39,7 +45,7 @@ a.link {
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   border-radius: 8px;
   padding: 6px 12px;
-  
+
 }
 
 .navbar__item:hover,
@@ -49,7 +55,7 @@ a.link:hover {
   background-color: rgba(66, 158, 238, 0.15) !important;
   color: var(--ifm-color-primary) !important;
   text-decoration: none;
-  cursor:pointer;
+  cursor: pointer;
 }
 
 /* ============================================================
@@ -63,7 +69,7 @@ a.link:hover {
   border-radius: var(--navbar-glass-radius);
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   padding: 0.6rem 1.2rem;
-  
+
   /* 液態玻璃核心 */
   background: rgba(255, 255, 255, 0.7) !important;
   backdrop-filter: blur(12px) saturate(180%) !important;
@@ -83,6 +89,7 @@ html[data-theme='dark'] .navbar--fixed-top {
 4. 🔥 手機版：液態玻璃側邊欄 (終極修復版)
 ============================================================ */
 @media (max-width: 996px) {
+
   /* 1. 徹底清空 Docusaurus 預設的背景色疊加 */
   .navbar-sidebar,
   .navbar-sidebar__brand,
@@ -104,16 +111,16 @@ html[data-theme='dark'] .navbar--fixed-top {
     height: 100vh !important;
     border-radius: 0 28px 28px 0 !important;
     margin: 0 !important;
-    
+
     /* 強力毛玻璃效果 */
     backdrop-filter: blur(30px) saturate(180%) brightness(1.05) !important;
     -webkit-backdrop-filter: blur(30px) saturate(200%) brightness(1.05) !important;
-    
+
     /* 亮色模式玻璃底色 */
     background: rgba(255, 255, 255, 1) !important;
     border-right: 1.5px solid rgba(255, 255, 255, 1) !important;
     box-shadow: 15px 0 50px rgba(0, 0, 0, 0.1) !important;
-    
+
     transform: translateX(-100%);
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
     z-index: 2100 !important;
@@ -174,41 +181,109 @@ html[data-theme='dark'] .navbar--fixed-top {
 /* ============================================================
 5. 文字樣式與標題 (Typography & Headings)
 ============================================================ */
-.hero-title, .blue-title, .blue-stroke-text { color: var(--ifm-color-primary); letter-spacing: 0.5px; }
-.hero-title { font-weight: 800; }
-.blue-title, .gray { font-weight: 1000; }
-.blue-stroke-text, .red-stroke-text { font-weight: 700; margin-left: 0.2rem; }
-.red-stroke-text { color: red; }
-.gray { color: #726f6f; }
-html[data-theme='dark'] .gray { color: #949597; }
-
-main > :is(h3, strong) {
-  display: block; font-size: 2.1rem; margin: 3rem 0 1rem;
-  padding-left: 1rem; border-left: 6px solid var(--ifm-color-primary);
+.hero-title,
+.blue-title,
+.blue-stroke-text {
+  color: var(--ifm-color-primary);
+  letter-spacing: 0.5px;
 }
 
-main ul:not(.breadcrumbs) { margin: 0 0 2rem; padding-left: 2rem; }
-main ul:not(.breadcrumbs) li { margin-bottom: 0.8rem; }
+.hero-title {
+  font-weight: 800;
+}
+
+.blue-title,
+.gray {
+  font-weight: 1000;
+}
+
+.blue-stroke-text,
+.red-stroke-text {
+  font-weight: 700;
+  margin-left: 0.2rem;
+}
+
+.red-stroke-text {
+  color: red;
+}
+
+.gray {
+  color: #726f6f;
+}
+
+html[data-theme='dark'] .gray {
+  color: #949597;
+}
+
+main> :is(h3, strong) {
+  display: block;
+  font-size: 2.1rem;
+  margin: 3rem 0 1rem;
+  padding-left: 1rem;
+  border-left: 6px solid var(--ifm-color-primary);
+}
+
+main ul:not(.breadcrumbs) {
+  margin: 0 0 2rem;
+  padding-left: 2rem;
+}
+
+main ul:not(.breadcrumbs) li {
+  margin-bottom: 0.8rem;
+}
 
 /* ============================================================
 6. 元件與多媒體 (Components & Media)
 ============================================================ */
-.youtube, .youtube-s {
-  max-width: 960px; margin: 2rem 0; padding: 1.2rem;
-  background: #def5ff; border-radius: 14px;
+.youtube,
+.youtube-s {
+  max-width: 960px;
+  margin: 2rem 0;
+  padding: 1.2rem;
+  background: #def5ff;
+  border-radius: 14px;
 }
-[data-theme='dark'] :is(.youtube, .youtube-s, .photo-border img) { background: #2a3b43; }
+
+[data-theme='dark'] :is(.youtube, .youtube-s, .photo-border img) {
+  background: #2a3b43;
+}
 
 .photo-border img {
-  margin: 2rem 0; padding: 1.2rem; background: #def5ff; border-radius: 14px;
+  margin: 2rem 0;
+  padding: 1.2rem;
+  background: #def5ff;
+  border-radius: 14px;
 }
 
-.youtube iframe, .youtube-s iframe { width: 100%; aspect-ratio: 16/9; border-radius: 10px; border: 0; }
-.youtube p, .youtube-s p, .photo-border p { margin-top: .4rem; font-size: 0.95rem; color: #949597; }
-
-.path-box, .path-box-tab {
-  background: #f8fafc; border: 1px solid #e5e7eb; border-radius: 8px;
-  padding: 0.75rem 1rem; font-family: monospace; color: #334155; margin: 0.5rem 0 1rem;
+.youtube iframe,
+.youtube-s iframe {
+  width: 100%;
+  aspect-ratio: 16/9;
+  border-radius: 10px;
+  border: 0;
 }
-html[data-theme='dark'] :is(.path-box, .path-box-tab) { background: #020617; border-color: #1e293b; color: #e5e7eb; }
 
+.youtube p,
+.youtube-s p,
+.photo-border p {
+  margin-top: .4rem;
+  font-size: 0.95rem;
+  color: #949597;
+}
+
+.path-box,
+.path-box-tab {
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  font-family: monospace;
+  color: #334155;
+  margin: 0.5rem 0 1rem;
+}
+
+html[data-theme='dark'] :is(.path-box, .path-box-tab) {
+  background: #020617;
+  border-color: #1e293b;
+  color: #e5e7eb;
+}

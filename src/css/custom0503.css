@@ -23,8 +23,7 @@
   /* Progress Bar Config */
   --progress-color: #429EEE;
   --progress-color-alt: #0051ff;
-  --progress-gradient-toggle: 1;
-  /* 【開關】1: 開啟漸層, 0: 純色 */
+  --progress-gradient-toggle: 1; /* 【開關】1: 開啟漸層, 0: 純色 */
 }
 
 html[data-theme='dark'] {
@@ -303,14 +302,13 @@ html.lock-paid-content [class*="tableOfContents"] [href*="%E4%BB%98%E8%B2%BB%E8%
 .progress-bar-fill::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  top: 0; left: 0; right: 0; bottom: 0;
   /* 這裡自動產生比底色深/淺的質感 */
-  background: linear-gradient(to right,
-      rgba(255, 255, 255, 0.15),
-      rgba(0, 0, 0, 0.1));
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.15),
+    rgba(0, 0, 0, 0.1)
+  );
   /* 根據開關決定是否顯示 */
   opacity: var(--progress-gradient-toggle);
   pointer-events: none;
