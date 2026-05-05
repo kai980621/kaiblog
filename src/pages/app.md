@@ -5,19 +5,19 @@ slug: /app
 
 # 📱 KAI 電腦裡有什麼 `/app`
 
-- 最後更新：2026-04-17
-- **總共 `39` 個 軟體**
+- 最後更新：2026-05-05
+- **總共 `38` 個 軟體**
 > 這是我在 Mac 上的軟體清單～
 
-### 1. Ableton Live : 業界標準的 Live 演出與編曲軟體   
-### 2. Affinity : 製作縮圖常用，[可以看這篇文章](/blog/affinity)   
-### 3. Antigravity : Google 官方的 AI 程式碼編輯器   
-### 4. Anytype : 超好用開源筆記軟體，載入速度極快   
-### 5. Aria Player :Finale 的專屬音樂播放器   
-### 6. AutoSubs : 快速生成字幕   
-### 7. Audacity : 免費開源超好用的音訊編輯器    
-### 8. Blip : 開源跨平台傳檔，遠距離也沒問題   
-### 9. Brave Browser : 具有隱私保護的開源瀏覽器   
+### 01. Ableton Live : 業界標準的 Live 演出與編曲軟體   
+### 02. Affinity : 製作縮圖常用，[可以看這篇文章](/blog/affinity)   
+### 03. Antigravity : Google 官方的 AI 程式碼編輯器   
+### 04. Anytype : 超好用開源筆記軟體，載入速度極快   
+### 05. Aria Player : Finale 的專屬音樂播放器  (可以刪掉嗎?)   
+### 06. AutoSubs : 快速生成字幕   
+### 07. Audacity : 免費開源超好用的音訊編輯器    
+### 08. Blip : 開源跨平台傳檔，遠距離也沒問題   
+### 09. Brave Browser : 具有隱私保護的開源瀏覽器   
 ### 10. Cavalry : 2D 動畫製作   
 ### 11. Cubase 15 : 主要的編曲軟體，教學資源不錯   
 ### 12. DaVinci Resolve : 找不到比他更好的調色與剪輯軟體了   
@@ -43,7 +43,7 @@ slug: /app
 ### 32. Pearcleaner : 乾淨卸載 App 的利器   
 ### 33. Raycast : 取代 Spotlight 的生產力核心   
 ### 34. Roblox : 我唯一玩的遊戲   
-### 35. Steinberg Download Manger : Steinberg 產品資源下載中心   
-### 36. Steinberg Library Manger : 管理 VST 音色庫路徑與授權的工具   
+### 35. Steinberg Download Manager : Steinberg 產品資源下載中心   
+### 36. Steinberg Library Manager : 管理 VST 音色庫路徑與授權的工具   
 ### 37. UVR 5 : 去人聲神器，使用本地模型   
 ### 38. YTDownloader : 下載 Youtube 影片很方便
