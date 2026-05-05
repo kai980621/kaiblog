@@ -30,11 +30,5 @@ import PaidContent from '@site/src/components/PaidContent';
 </div>
 
 
-
-**📌 新影片內容說明：**  
-:::tip 使用工具
-1. musescore 打譜
-2. Keynote製作影片
-3. Affinity 縮圖製作
-:::
+c
 

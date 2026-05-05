@@ -25,10 +25,10 @@ slug: /
 
 ### 影片企劃
 - [Roblox 遊戲 第一集](/docs/video-set/video01/roblox01)
-- [Roblox 遊戲 第二集](/docs/video-set/video02/roblox02)
+- [Roblox 遊戲 第二集](/docs/video-set/video01/roblox02)
 ### Roblox
-- [Roblox 推薦首頁](/docs/roblox/robloxgame)
-- [Roblox 遊戲推薦大全](/docs/roblox/robloxgame)
+- [Roblox 推薦首頁](/docs/roblox/)
+- [Roblox 遊戲推薦大全](/docs/roblox/)
 ### Docusaurus 筆記區
 - [選項卡](/docs/tabs)
 

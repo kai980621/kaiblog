@@ -10,8 +10,8 @@ const config = {
   baseUrl: '/',
   organizationName: 'kaihchs118',
   projectName: 'kaiblog',
-  onBrokenLinks: 'ignore',
-  onBrokenAnchors: 'ignore',
+  onBrokenLinks: 'warn',
+  onBrokenAnchors: 'warn',
 
   i18n: {
     defaultLocale: 'zh-Hant',
