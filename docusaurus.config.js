@@ -120,6 +120,7 @@ const config = {
           { to: '/blog/archive', label: '🗄️ 貼文列表', position: 'left' },
           { to: '/random', label: '🎲 隨機', position: 'left' },
           { to: '/docs', label: '📚 筆記', position: 'left' },
+          { to: '/mayday-sim', label: '🎫 搶票練習', position: 'left' },
           { to: '/app', label: '📱 應用程式', position: 'left' },
           { to: '/about', label: '👤 關於', position: 'left' },
           { to: '/search', label: '🔍 全站搜尋', position: 'right' },
