@@ -4,22 +4,21 @@ import Head from '@docusaurus/Head';
 import styles from './mayday-sim.module.css';
 
 const SESSIONS = [
-  { id: 1, date: '2026/07/03 (五) 19:30' },
-  { id: 2, date: '2026/07/04 (六) 18:30' },
-  { id: 3, date: '2026/07/05 (日) 18:30' },
-  { id: 4, date: '2026/07/08 (三) 19:30' },
-  { id: 5, date: '2026/07/10 (五) 19:30' },
-  { id: 6, date: '2026/07/11 (六) 18:30' },
-  { id: 7, date: '2026/07/12 (日) 18:30' },
+  { id: 1, date: '2026/07/03 (五) 19:30', name: 'MAYDAY #5525 [ 回到那一天 ]' },
+  { id: 2, date: '2026/07/04 (六) 18:30', name: 'MAYDAY #5525 [ 回到那一天 ]' },
+  { id: 3, date: '2026/07/05 (日) 18:30', name: 'MAYDAY #5525 [ 回到那一天 ]' },
+  { id: 4, date: '2026/07/08 (三) 19:30', name: 'MAYDAY #5525 [ 回到那一天 ]' },
+  { id: 5, date: '2026/07/10 (五) 19:30', name: 'MAYDAY #5525 [ 回到那一天 ]' },
+  { id: 6, date: '2026/07/11 (六) 18:30', name: 'MAYDAY #5525 [ 回到那一天 ]' },
+  { id: 7, date: '2026/07/12 (日) 18:30', name: 'MAYDAY #5525 [ 回到那一天 ]' },
 ];
 
 const MaydaySim = () => {
-  // Phase: 0(首頁), 1(場次), 2(區域), 3(張數), 4(結果)
-  const [phase, setPhase] = useState(0);
-  const [selectedSession, setSelectedSession] = useState(null);
+  const [phase, setPhase] = useState(0); // 0:首頁, 1:場次, 2:區域, 3:表單, 4:結果
   const [countdown, setCountdown] = useState(3);
   const [isTimerRunning, setIsTimerRunning] = useState(false);
   const [canBuy, setCanBuy] = useState(false);
+  const [selectedSession, setSelectedSession] = useState(null);
   const [selectedArea, setSelectedArea] = useState('');
   const [captcha, setCaptcha] = useState('');
   const [captchaData, setCaptchaData] = useState([]);
@@ -29,9 +28,7 @@ const MaydaySim = () => {
   const [finalResult, setFinalResult] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  const captchaInputRef = useRef(null);
-
-  // 驗證碼字體產生
+  // 驗證碼產生
   const generateCaptcha = () => {
     const chars = "abcdefhjkmnpqrstuvwxyz";
     let captchaStr = "";
@@ -41,7 +38,7 @@ const MaydaySim = () => {
       captchaStr += char;
       result.push({
         char,
-        rotate: Math.floor(Math.random() * 20) - 10,
+        rotate: Math.floor(Math.random() * 30) - 15,
         offset: Math.floor(Math.random() * 10) - 5,
       });
     }
@@ -50,20 +47,20 @@ const MaydaySim = () => {
     setCaptchaInput('');
   };
 
-  // 倒數與計時邏輯
+  // 倒數邏輯
   useEffect(() => {
     let interval;
     if (isTimerRunning && countdown > 0) {
       interval = setInterval(() => setCountdown(prev => prev - 1), 1000);
     } else if (countdown === 0 && isTimerRunning) {
       setCanBuy(true);
-      setStartTime(performance.now()); // 從這裡開始計算搶票秒數
+      setStartTime(performance.now()); // 倒數結束即開始計時
       setIsTimerRunning(false);
     }
     return () => clearInterval(interval);
   }, [isTimerRunning, countdown]);
 
-  const handleGoToSessions = () => {
+  const startPractice = () => {
     setPhase(1);
     setIsTimerRunning(true);
     window.scrollTo(0, 0);
@@ -77,7 +74,7 @@ const MaydaySim = () => {
   };
 
   const handleSubmit = () => {
-    if (ticketQty === 0) return;
+    if (ticketQty === 0) return alert("請選擇張數");
     if (captchaInput.toLowerCase().trim() !== captcha) {
       alert("驗證碼錯誤，請重新輸入");
       generateCaptcha();
@@ -85,8 +82,7 @@ const MaydaySim = () => {
     }
 
     setIsLoading(true);
-    const endTime = performance.now();
-    const timeTaken = ((endTime - startTime) / 1000).toFixed(2);
+    const timeTaken = ((performance.now() - startTime) / 1000).toFixed(2);
 
     setTimeout(() => {
       setIsLoading(false);
@@ -97,100 +93,88 @@ const MaydaySim = () => {
         session: selectedSession.date
       });
       setPhase(4);
-    }, 1500);
-  };
-
-  const resetAll = () => {
-    setPhase(0);
-    setCountdown(3);
-    setCanBuy(false);
-    setTicketQty(0);
-    setCaptchaInput('');
-    setFinalResult(null);
-    window.scrollTo(0, 0);
+    }, 1200);
   };
 
   return (
-    <Layout title="拓元搶票練習器">
+    <Layout title="拓元模擬搶票">
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-        <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet" />
       </Head>
 
       <div className={styles.mainWrapper}>
-        
-        {/* Step Progress */}
-        {phase > 0 && phase < 4 && (
-          <div className={styles.navProgress}>
-            <div className={phase === 1 ? styles.activeStep : ''}>1. 選擇場次</div>
-            <div className={phase === 2 ? styles.activeStep : ''}>2. 選擇區域</div>
-            <div className={phase === 3 ? styles.activeStep : ''}>3. 填寫資料</div>
-          </div>
-        )}
-
         <div className={styles.container}>
           
-          {/* Phase 0: 購票首頁 */}
+          {/* Phase 0: 節目資訊頁 */}
           {phase === 0 && (
             <div className={styles.introPage}>
-              <img className={styles.poster} src="https://bin.static.tixcraft.com/images/activity/24_mayday_c_825_413.jpg" alt="Poster" />
-              <div className={styles.introContent}>
-                <h2>MAYDAY #5525 [ 回到那一天 ] 25週年巡迴演唱會</h2>
-                <p>演出地點：臺北大巨蛋</p>
-                <button className={styles.btnMainBlue} onClick={handleGoToSessions}>立即購票</button>
+              <div className={styles.imgWrap}>
+                <img src="https://bin.static.tixcraft.com/images/activity/24_mayday_c_825_413.jpg" alt="Poster" />
+              </div>
+              <div className={styles.contentPad}>
+                <h1 className={styles.title}>MAYDAY #5525 [ 回到那一天 ] 25週年巡迴演唱會</h1>
+                <div className={styles.infoList}>
+                  <p>演出場地：臺北大巨蛋</p>
+                  <p>售票時間：2026/07/01 11:00</p>
+                </div>
+                <div className={styles.mainAction}>
+                  <button className={styles.btnTixBlue} onClick={startPractice}>立即購票</button>
+                </div>
               </div>
             </div>
           )}
 
-          {/* Phase 1: 場次列表 */}
+          {/* Phase 1: 場次表 */}
           {phase === 1 && (
-            <div className={styles.sessionPage}>
-              <div className={styles.topInfo}>
-                {canBuy ? <span className={styles.timerRun}>計時中...</span> : <span className={styles.timerWait}>倒數 {countdown} 秒後開啟</span>}
+            <div className={styles.pageBox}>
+              <div className={styles.timerBar}>
+                {canBuy ? <span className={styles.ready}>搶票進行中...</span> : <span className={styles.wait}>剩餘 {countdown} 秒開啟訂購按鈕</span>}
               </div>
-              <table className={styles.sessionTable}>
-                <thead>
-                  <tr>
-                    <th>演出日期</th>
-                    <th>場地</th>
-                    <th>操作</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {SESSIONS.map(s => (
-                    <tr key={s.id}>
-                      <td>{s.date}</td>
-                      <td>臺北大巨蛋</td>
-                      <td>
-                        <button 
-                          className={canBuy ? styles.btnGreen : styles.btnDisabled}
-                          disabled={!canBuy}
-                          onClick={() => { setSelectedSession(s); setPhase(2); }}
-                        >
-                          立即訂購
-                        </button>
-                      </td>
+              <div className={styles.tableWrap}>
+                <table className={styles.tixTable}>
+                  <thead>
+                    <tr>
+                      <th>演出日期</th>
+                      <th className={styles.mobileHide}>場次名稱</th>
+                      <th>狀態</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody>
+                    {SESSIONS.map(s => (
+                      <tr key={s.id}>
+                        <td className={styles.dateCol}>{s.date}</td>
+                        <td className={styles.mobileHide}>{s.name}</td>
+                        <td>
+                          <button 
+                            className={canBuy ? styles.btnGreen : styles.btnGrayed}
+                            disabled={!canBuy}
+                            onClick={() => { setSelectedSession(s); setPhase(2); }}
+                          >
+                            立即訂購
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
           )}
 
           {/* Phase 2: 區域選擇 */}
           {phase === 2 && (
-            <div className={styles.areaPage}>
-              <div className={styles.areaHeader}>{selectedSession.date}</div>
-              <div className={styles.areaContent}>
-                <div className={styles.mapContainer}>
-                   <img src="https://bin.static.tixcraft.com/images/activity/24_mayday_c_area_0905.png" alt="Seat Map" />
+            <div className={styles.pageBox}>
+              <div className={styles.sessionHeader}>{selectedSession.date}</div>
+              <div className={styles.areaGrid}>
+                <div className={styles.mapSide}>
+                  <img src="https://bin.static.tixcraft.com/images/activity/24_mayday_c_area_0905.png" alt="Map" />
                 </div>
-                <div className={styles.areaList}>
-                  <h3>請選擇區域</h3>
+                <div className={styles.listSide}>
+                  <div className={styles.listHeader}>請選擇區域</div>
                   {['搖滾 A1 區', '搖滾 A2 區', '東下 K 區', '西下 J 區', '南下 G 區', '南上 D 區'].map(name => (
-                    <div key={name} className={styles.areaItem} onClick={() => handleSelectArea(name)}>
-                      <span>{name}</span>
-                      <span className={styles.priceTag}>$3,880</span>
+                    <div key={name} className={styles.areaRow} onClick={() => handleSelectArea(name)}>
+                      <span className={styles.areaName}>{name}</span>
+                      <span className={styles.areaPrice}>$3,880 <span className={styles.statusHot}>熱賣中</span></span>
                     </div>
                   ))}
                 </div>
@@ -198,62 +182,67 @@ const MaydaySim = () => {
             </div>
           )}
 
-          {/* Phase 3: 張數驗證碼 */}
+          {/* Phase 3: 數量與驗證碼 */}
           {phase === 3 && (
-            <div className={styles.formPage}>
-              <div className={styles.formHeader}>
-                您選擇的是：{selectedSession.date} <br/> <strong>{selectedArea}</strong>
+            <div className={styles.pageBox}>
+              <div className={styles.formSummary}>
+                <strong>{selectedSession.date}</strong> | 區域：<span className={styles.blueLabel}>{selectedArea}</span>
               </div>
               
-              <div className={styles.qtySection}>
-                <label>選擇張數</label>
-                <select className={styles.qtySelect} value={ticketQty} onChange={(e) => setTicketQty(parseInt(e.target.value))}>
-                  {[0, 1, 2, 3, 4].map(n => <option key={n} value={n}>{n} 張</option>)}
-                </select>
+              <div className={styles.qtyTable}>
+                <div className={styles.qtyRow}>
+                  <label>全票 $3,880</label>
+                  <select className={styles.qtySelect} value={ticketQty} onChange={(e) => setTicketQty(parseInt(e.target.value))}>
+                    {[0, 1, 2, 3, 4].map(n => <option key={n} value={n}>{n}</option>)}
+                  </select>
+                </div>
               </div>
 
-              <div className={styles.captchaSection}>
-                <div className={styles.captchaBox} onClick={generateCaptcha}>
+              <div className={styles.captchaBlock}>
+                <div className={styles.captchaImage} onClick={generateCaptcha}>
                   {captchaData.map((c, i) => (
-                    <span key={i} style={{ transform: `rotate(${c.rotate}deg) translateY(${c.offset}px)` }}>
+                    <span key={i} style={{ 
+                      transform: `rotate(${c.rotate}deg) translateY(${c.offset}px)`,
+                    }}>
                       {c.char}
                     </span>
                   ))}
                 </div>
                 <input 
-                  ref={captchaInputRef}
                   className={styles.captchaInput}
                   type="text"
-                  placeholder="不分大小寫"
+                  placeholder="輸入驗證碼(不分大小寫)"
                   value={captchaInput}
                   onChange={(e) => setCaptchaInput(e.target.value)}
                 />
-                <p className={styles.hint}>請輸入驗證碼</p>
+                <p className={styles.hintText}>請輸入上方 4 位英文字母</p>
               </div>
 
-              <button className={styles.btnSubmit} onClick={handleSubmit}>確認張數</button>
+              <div className={styles.bottomActions}>
+                <button className={styles.btnSecondary} onClick={() => setPhase(2)}>重新選區</button>
+                <button className={styles.btnPrimary} onClick={handleSubmit}>確認張數</button>
+              </div>
             </div>
           )}
 
-          {/* Phase 4: 結果顯示 */}
+          {/* Phase 4: 結果 */}
           {phase === 4 && finalResult && (
-            <div className={styles.resultPage}>
-              <div className={styles.successIcon}>🎉</div>
-              <h2>恭喜您搶票成功！</h2>
-              <div className={styles.resultInfo}>
-                <p><span>耗費時間</span> <strong>{finalResult.time} 秒</strong></p>
-                <p><span>場次日期</span> {finalResult.session}</p>
-                <p><span>選擇區域</span> {finalResult.area}</p>
-                <p><span>購票張數</span> {finalResult.qty} 張</p>
+            <div className={styles.resultBox}>
+              <div className={styles.successHead}>訂單成立！(模擬結果)</div>
+              <div className={styles.resultDetails}>
+                <div className={styles.resRow}><span>搶票花費時間：</span> <strong>{finalResult.time} 秒</strong></div>
+                <div className={styles.resRow}><span>演出場次：</span> {finalResult.session}</div>
+                <div className={styles.resRow}><span>選擇區域：</span> {finalResult.area}</div>
+                <div className={styles.resRow}><span>購票張數：</span> {finalResult.qty} 張</div>
               </div>
-              <button className={styles.btnAgain} onClick={resetAll}>再試一次</button>
+              <button className={styles.btnRestart} onClick={() => window.location.reload()}>回首頁再試一次</button>
             </div>
           )}
 
         </div>
 
         {isLoading && (
-          <div className={styles.overlay}>
+          <div className={styles.loadingWrap}>
             <div className={styles.spinner}></div>
             <p>正在通訊中，請稍候...</p>
           </div>
