@@ -106,7 +106,7 @@ const MaydaySim = () => {
     const endTime = performance.now();
     const timeTaken = ((endTime - startTime) / 1000).toFixed(2);
 
-    // 模擬伺服器負載，增加至 20 秒
+    // 模擬伺服器負載，增加至 5 秒
     setTimeout(() => {
       setIsLoading(false);
       setResult({
@@ -116,7 +116,7 @@ const MaydaySim = () => {
         qty: ticketQty
       });
       setPhase(4);
-    }, 20000);
+    }, 5000);
   };
 
   const steps = [
