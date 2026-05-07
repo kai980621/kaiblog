@@ -14,15 +14,25 @@ const SESSIONS = [
 ];
 
 const AREAS = [
-  { group: '搖滾站區', list: [
-    { name: '搖滾 A1 區', price: 6880 }, { name: '搖滾 A2 區', price: 6880 },
-    { name: '搖滾 B1 區', price: 5880 }, { name: '搖滾 B2 區', price: 5880 }
-  ]},
-  { group: '看台座位區', list: [
-    { name: '東下 K 區', price: 3880 }, { name: '西下 J 區', price: 3880 },
-    { name: '南下 G 區', price: 3280 }, { name: '東上 E 區', price: 2880 },
-    { name: '西上 F 區', price: 2880 }, { name: '頂層 H 區', price: 800 }
-  ]}
+  {
+    group: '搖滾站區', list: [
+      { name: '瘋狂世界搖滾 A 區', price: 5525 }, { name: '瘋狂世界搖滾 B 區', price: 4525 },
+      { name: '搖滾 C 區', price: 4225 }, { name: '搖滾 D 區', price: 3225 }
+    ]
+  },
+  {
+    group: '看台座位區', list: [
+      { name: '東下 K 區', price: 2225 }, { name: '西下 J 區', price: 2225 },
+      { name: '南下 G 區', price: 2225 }, { name: '東上 E 區', price: 2225 },
+      { name: '西上 F 區', price: 2225 }, { name: '頂層 H 區', price: 1525 }
+    ]
+  },
+  {
+    group: '親子套票專區', list: [
+      { name: 'B4 區', price: 4225 }, { name: '206 區', price: 3225 },
+      { name: '105 區', price: 2225 }
+    ]
+  }
 ];
 
 const MaydaySim = () => {
@@ -107,23 +117,20 @@ const MaydaySim = () => {
   };
 
   return (
-    <Layout title="拓元模擬搶票">
+    <Layout title="拓元搶票練習">
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-        <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet" />
+        <link href="" rel="stylesheet" />
       </Head>
 
       <div className={styles.wrapper}>
         <div className={styles.appContainer}>
-          
+
           {/* Phase 0: 倒數與啟動頁 */}
           {phase === 0 && (
             <div className={styles.landing}>
-              <div className={styles.posterContainer}>
-                <img src="https://bin.static.tixcraft.com/images/activity/24_mayday_c_825_413.jpg" alt="Poster" />
-              </div>
               <div className={styles.introContent}>
-                <h1>MAYDAY #5525 [ 回到那一天 ]</h1>
+                <h1>MAYDAY #5525+2 [ 回到那一天 ]</h1>
                 <p>地點：臺北大巨蛋</p>
                 <div className={styles.startZone}>
                   {countdown > 0 ? (
@@ -169,7 +176,7 @@ const MaydaySim = () => {
               <div className={styles.blueHeader}>{selectedSession.date}</div>
               <div className={styles.areaContent}>
                 <div className={styles.mapBox}>
-                  <img src="https://bin.static.tixcraft.com/images/activity/24_mayday_c_area_0905.png" alt="Map" />
+                  <img src="/img/mayday/mayday_map.png" alt="Map" />
                 </div>
                 <div className={styles.areaList}>
                   <div className={styles.listHead}>請選擇區域</div>
@@ -195,7 +202,7 @@ const MaydaySim = () => {
               <div className={styles.selectionSummary}>
                 <strong>{selectedSession.date}</strong> | <span className={styles.blueTag}>{selectedArea.name}</span>
               </div>
-              
+
               <div className={styles.qtyBox}>
                 <div className={styles.qtyRow}>
                   <label>全票 ${selectedArea.price}</label>
@@ -213,7 +220,7 @@ const MaydaySim = () => {
                     </span>
                   ))}
                 </div>
-                <input 
+                <input
                   className={styles.captchaInput}
                   type="text"
                   placeholder="不分大小寫"
@@ -258,11 +265,12 @@ const MaydaySim = () => {
         {isLoading && (
           <div className={styles.overlay}>
             <div className={styles.loader}></div>
-            <p>通訊中，請稍候...</p>
+            <h2>處理中請稍後</h2>
+            <h4>請勿關閉視窗...</h4>
           </div>
         )}
       </div>
-    </Layout>
+    </Layout >
   );
 };
 
