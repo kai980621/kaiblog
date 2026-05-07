@@ -1,342 +1,297 @@
-/* 定義顏色變數 - 支援 Light / Dark Mode */
+/* --- 變數定義 --- */
 :root {
-  --sim-bg: #f4f4f4;
-  --sim-card-bg: #ffffff;
-  --sim-text-main: #333333;
-  --sim-text-muted: #666666;
-  --sim-border: #dddddd;
-  --sim-header-bg: #ffffff;
-  --sim-table-head: #f5f5f5;
-  --sim-primary: #007bff;
-  --sim-primary-hover: #0056b3;
-  --sim-success: #28a745;
-  --sim-danger: #d9534f;
-  --sim-notice-bg: #fff8f8;
-  --sim-captcha-bg: #f0f0f0;
-  --sim-loading-overlay: rgba(255, 255, 255, 0.9);
+  --primary-blue: #00cfec; /* 五月天經典藍 */
+  --primary-hover: #00b8d4;
+  --bg-main: #f0f2f5;
+  --bg-card: #ffffff;
+  --text-main: #1c1e21;
+  --text-sub: #606770;
+  --border-color: #ebedf0;
+  --status-hot: #ff4d4f;
+  --status-green: #52c41a;
+  --btn-shadow: rgba(0, 207, 236, 0.2);
 }
 
-/* 暗色主題覆寫 (Docusaurus 預設使用 [data-theme='dark']) */
 [data-theme='dark'] {
-  --sim-bg: #121212;
-  --sim-card-bg: #1e1e1e;
-  --sim-text-main: #e1e1e1;
-  --sim-text-muted: #aaaaaa;
-  --sim-border: #333333;
-  --sim-header-bg: #252525;
-  --sim-table-head: #2d2d2d;
-  --sim-primary: #3391ff;
-  --sim-notice-bg: #2d2222;
-  --sim-captcha-bg: #333333;
-  --sim-loading-overlay: rgba(0, 0, 0, 0.85);
+  --bg-main: #18191a;
+  --bg-card: #242526;
+  --text-main: #e4e6eb;
+  --text-sub: #b0b3b8;
+  --border-color: #3e4042;
+  --btn-shadow: rgba(0, 0, 0, 0.4);
 }
 
 .mainWrapper {
-  background: var(--sim-bg);
+  background-color: var(--bg-main);
   min-height: 100vh;
-  padding-bottom: 50px;
-  outline: none;
-  font-family: 'Noto Sans TC', sans-serif;
-  color: var(--sim-text-main);
-  transition: background 0.3s, color 0.3s;
+  color: var(--text-main);
+  font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+  padding: 0 0 40px 0;
+  transition: all 0.3s ease;
 }
 
-.container {
-  max-width: 1100px;
-  margin: 0 auto;
-  background: var(--sim-card-bg);
-  border: 1px solid var(--sim-border);
-  border-radius: 4px;
-  overflow: hidden;
-}
-
-/* 進度條 - 手機版優化 */
+/* --- 進度條優化 --- */
 .navProgress {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px 10px;
-  max-width: 1100px;
-  margin: 0 auto;
+  padding: 20px;
+  background: var(--bg-card);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .progStep {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 5px;
-  color: var(--sim-text-muted);
-  font-size: 0.8rem;
-  width: 20%; /* 改用百分比 */
+  width: 60px;
 }
 
 .progCircle {
-  width: 24px;
-  height: 24px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
-  background: var(--sim-border);
-  color: #fff;
+  background: var(--border-color);
+  color: var(--text-sub);
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: bold;
-  font-size: 0.8rem;
-}
-
-.progLine {
-  flex: 1;
-  height: 2px;
-  background: var(--sim-border);
-}
-
-.progActive {
-  color: var(--sim-primary);
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
 }
 
 .progActive .progCircle {
-  background: var(--sim-primary);
+  background: var(--primary-blue);
+  color: white;
+  box-shadow: 0 0 10px var(--btn-shadow);
 }
 
-/* Header - 手機版改為垂直排列 */
-.headerBox {
-  display: flex;
-  gap: 20px;
-  padding: 20px;
-  border-bottom: 1px solid var(--sim-border);
+.progStep span {
+  font-size: 0.7rem;
+  margin-top: 5px;
+  white-space: nowrap;
 }
 
-.eventImage img {
-  width: 120px;
-  height: auto;
-  border-radius: 4px;
-}
-
-.eventInfoText h1 {
-  font-size: 1.2rem;
-  margin: 0 0 8px 0;
-}
-
-.locationTag {
-  background: var(--sim-table-head);
-  color: var(--sim-text-muted);
-  padding: 2px 8px;
-  border-radius: 3px;
-  font-size: 0.75rem;
-}
-
-.bestRecord {
-  margin-top: 10px;
-  color: var(--sim-danger);
-  font-weight: bold;
-  font-size: 0.9rem;
-}
-
-/* Table 響應式：手機版允許橫向捲動 */
-.phase1 { padding: 15px; }
-
-.tableResponsive {
-  width: 100%;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-}
-
-.tixTable {
-  width: 100%;
-  min-width: 500px; /* 確保內容不擠壓 */
-  border-collapse: collapse;
+.progLine {
+  width: 40px;
+  height: 2px;
+  background: var(--border-color);
   margin-bottom: 20px;
 }
 
-.tixTable th {
-  background: var(--sim-table-head);
-  padding: 10px;
-  border: 1px solid var(--sim-border);
-  color: var(--sim-text-main);
+/* --- 主容器 --- */
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  background: var(--bg-card);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+/* --- Header 視覺提升 --- */
+.headerBox {
+  display: flex;
+  padding: 24px;
+  gap: 20px;
+  background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-main) 100%);
+  align-items: center;
+}
+
+.eventImage img {
+  width: 140px;
+  aspect-ratio: 2/1;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.eventInfoText h1 {
+  font-size: 1.25rem;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.locationTag {
+  background: var(--primary-blue);
+  color: white;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+}
+
+/* --- 搶票列表 --- */
+.tixTable {
+  width: 100%;
+  border-collapse: collapse;
 }
 
 .tixTable td {
-  padding: 15px;
-  border: 1px solid var(--sim-border);
-  text-align: center;
+  padding: 20px;
+  border-top: 1px solid var(--border-color);
 }
 
-/* 按鈕 */
+/* 讓按鈕在手機上更好按 */
 .btnBuyNow {
-  background: var(--sim-primary);
-  color: #fff;
+  background: var(--primary-blue);
+  color: white;
   border: none;
-  padding: 10px 20px;
-  border-radius: 4px;
-  cursor: pointer;
+  width: 100%;
+  padding: 12px 24px;
+  border-radius: 10px;
   font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.1s;
 }
 
-.btnDisabled {
-  background: var(--sim-text-muted);
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 4px;
-  cursor: not-allowed;
-  opacity: 0.6;
+.btnBuyNow:active {
+  transform: scale(0.95);
 }
 
-/* Phase 2: 區域選擇 */
+/* --- 區域選擇 (核心優化) --- */
 .areaLayout {
   display: flex;
+  flex-direction: column; /* 手機優先：上下排列 */
 }
 
 .mapSide {
-  flex: 1.5;
-  padding: 15px;
-  border-right: 1px solid var(--sim-border);
-  background: #fff; /* 地圖通常是白色底 */
-  display: flex;
-  justify-content: center;
+  padding: 10px;
+  background: white; /* 地圖背景固定白，避免暗色模式看不清地圖線條 */
+  text-align: center;
 }
 
 .mapSide img {
-  max-width: 100%;
-  height: auto;
+  width: 100%;
+  max-height: 300px;
+  object-fit: contain;
+  cursor: zoom-in;
 }
 
 .listSide {
-  flex: 1;
-  padding: 15px;
-  background: var(--sim-card-bg);
-}
-
-.groupHeader {
-  background: var(--sim-table-head);
-  padding: 8px 15px;
-  font-weight: bold;
-  border: 1px solid var(--sim-border);
+  padding: 16px;
 }
 
 .areaRow {
   display: flex;
   justify-content: space-between;
-  padding: 12px 15px;
-  border: 1px solid var(--sim-border);
-  border-top: none;
+  align-items: center;
+  padding: 16px;
+  margin-bottom: 10px;
+  background: var(--bg-main);
+  border-radius: 12px;
   cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.2s ease;
+  min-height: 60px; /* 確保觸控高度 */
 }
 
-[data-theme='dark'] .areaRow:hover { background: #2a2a2a; }
-.areaRow:hover { background: #f0f7ff; }
-
-/* Phase 3: 驗證碼與張數 */
-.phase3 { padding: 15px; }
-
-.qtyTable {
-  width: 100%;
-  border-collapse: collapse;
+.areaRow:active {
+  background: var(--border-color);
+  transform: scale(0.98);
 }
 
-.qtyTable th { background: var(--sim-table-head); padding: 10px; border: 1px solid var(--sim-border); }
-.qtyTable td { padding: 10px; border: 1px solid var(--sim-border); text-align: center; }
-
-/* 驗證碼手機版改為上下堆疊 */
-.captchaWrapper {
+/* --- 驗證碼區塊優化 --- */
+.captchaSection {
+  padding: 24px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 15px;
-  margin: 30px 0;
+  gap: 20px;
 }
 
 .captchaDisplay {
-  background: var(--sim-captcha-bg);
-  color: #333; /* 驗證碼文字固定深色較好辨識 */
-  font-size: 2rem;
-  padding: 10px 30px;
-  border: 2px solid var(--sim-border);
-  min-width: 180px;
-  text-align: center;
+  background: #f8f9fa; /* 輕微灰底 */
+  padding: 15px 30px;
+  border-radius: 12px;
+  border: 2px dashed var(--primary-blue);
+  cursor: pointer;
+  user-select: none;
+  font-size: 2.5rem;
+  color: #333;
 }
 
-.captchaInputBox input {
-  padding: 12px;
-  border: 2px solid var(--sim-primary);
+.mobileInput {
   width: 100%;
-  max-width: 300px;
-  font-size: 1.2rem;
+  max-width: 280px;
+  height: 56px;
+  font-size: 1.5rem;
   text-align: center;
-  background: var(--sim-card-bg);
-  color: var(--sim-text-main);
-  border-radius: 4px;
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
+  background: var(--bg-card);
+  color: var(--text-main);
+  text-transform: lowercase; /* 拓元通常不分大小寫 */
 }
 
-.finalAgreement {
-  padding: 0 10px;
-  font-size: 0.85rem;
-  margin-bottom: 30px;
+.mobileInput:focus {
+  border-color: var(--primary-blue);
+  outline: none;
+  box-shadow: 0 0 0 4px var(--btn-shadow);
 }
 
-/* Loading Overlay 暗色優化 */
+/* --- 底部控制項 --- */
+.bottomBtns {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 12px;
+  padding: 20px;
+  background: var(--bg-card);
+  border-top: 1px solid var(--border-color);
+}
+
+.btnGreen {
+  background: var(--status-green);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.btnGray {
+  background: var(--border-color);
+  color: var(--text-sub);
+  border: none;
+  border-radius: 12px;
+  padding: 12px;
+}
+
+/* --- RWD 電腦版微調 --- */
+@media (min-width: 768px) {
+  .areaLayout {
+    flex-direction: row; /* 電腦版改回左右排列 */
+  }
+  .mapSide {
+    flex: 1;
+    border-right: 1px solid var(--border-color);
+  }
+  .listSide {
+    flex: 1;
+    overflow-y: auto;
+    max-height: 600px;
+  }
+  .headerBox {
+    padding: 32px;
+  }
+  .eventImage img {
+    width: 200px;
+  }
+}
+
+/* Loading 動畫 */
 .loadingOverlay {
   position: fixed;
-  top: 0; left: 0; width: 100%; height: 100%;
-  background: var(--sim-loading-overlay);
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(4px);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
-  color: var(--sim-text-main);
-}
-
-.spinner {
-  width: 50px;
-  height: 50px;
-  border: 5px solid var(--sim-border);
-  border-top: 5px solid var(--sim-primary);
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin { 100% { transform: rotate(360deg); } }
-
-/* 手機版 (Mobile) 特定樣式調整 */
-@media (max-width: 768px) {
-  .headerBox {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+  z-index: 999;
+  color: white;
   }
-
-  .eventImage img {
-    width: 150px;
-  }
-
-  .areaLayout {
-    flex-direction: column;
-  }
-
-  .mapSide {
-    border-right: none;
-    border-bottom: 1px solid var(--sim-border);
-  }
-
-  .progStep span {
-    display: none; /* 手機版隱藏進度條文字，只留數字圓圈 */
-  }
-
-  .navProgress {
-    padding: 15px 5px;
-  }
-
-  .captchaDisplay {
-    transform: scale(0.9); /* 驗證碼稍微縮小一點點 */
-  }
-
-  .bottomBtns {
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .btnGreen, .btnGray {
-    width: 100%;
-    padding: 15px;
-  }
-}
