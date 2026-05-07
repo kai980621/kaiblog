@@ -3,12 +3,12 @@ import { themes as prismThemes } from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'KAI BLOG',
+  title: 'KAIBLOG',
   favicon: 'img/favicon/favicon.ico',
   // 舊站網址
   url: 'https://kaiblog.is-a.dev',
   baseUrl: '/',
-  organizationName: 'kaihchs118',
+  organizationName: 'kai980621',
   projectName: 'kaiblog',
   onBrokenLinks: 'warn',
   onBrokenAnchors: 'warn',
@@ -110,7 +110,7 @@ const config = {
       colorMode: { respectPrefersColorScheme: false },
 
       navbar: {
-        title: 'KAI BLOG',
+        title: 'KAIBLOG',
         logo: {
           alt: 'Logo',
           src: 'img/favicon/favicon.svg'
