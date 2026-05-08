@@ -7,7 +7,7 @@ slug: /app
 
 - 最後更新：2026-05-08
 - **總共 `38` 個 軟體**
-> 這是我在 Mac 上的軟體清單～
+> 這是我在 Mac 上的軟體清單，藍色字為最近更新的軟體
 
 ### 01. Ableton Live 12 : 業界標準的 Live 演出與編曲軟體   
 ### 02. Affinity : 製作縮圖常用，[可以看這篇文章](/blog/affinity)   
@@ -15,7 +15,7 @@ slug: /app
 ### 04. Anytype : 超好用開源筆記軟體，載入速度極快   
 ### 05. Aria Player : Finale 的專屬音樂播放器  (可以刪掉嗎?)
 ### 06. Audacity : 免費開源超好用的音訊編輯器    
-### 07. <a>AutoSubs : 快速生成字幕</a>
+### <a>07. AutoSubs : 快速生成字幕</a>
 ### 08. Blip : 開源跨平台傳檔，遠距離也沒問題   
 ### 09. Brave Browser : 具有隱私保護的開源瀏覽器   
 ### 10. Cubase 15 : 主要的編曲軟體，教學資源不錯   
@@ -29,7 +29,7 @@ slug: /app
 ### 18. Keynote : 蘋果簡報工具   
 ### 19. Kontakt 8 : 強大的採樣音源主機   
 ### 20. Line : 必要但笨重的通訊軟體   
-### 21. <a>LM Studio : 運行本地AI模型的工具</a>
+### <a>21. LM Studio : 運行本地AI模型的工具</a>
 ### 22. Logic Pro : 蘋果自家 DAW，想刪除了！   
 ### 23. Microsoft Excel : 強大的試算表工具   
 ### 24. Microsoft PowerPoint : 簡報必備工具   
@@ -45,5 +45,5 @@ slug: /app
 ### 34. Steinberg Download Manager : Steinberg 產品資源下載中心   
 ### 35. Steinberg Library Manager : 管理 VST 音色庫路徑與授權的工具   
 ### 36. UVR 5 : 去人聲神器，使用本地模型   
-### 37. <a>VS Code : 好用的代碼編輯器   </a>
+### <a>37. VS Code : 好用的代碼編輯器   </a>
 ### 38. YTDownloader : 下載 Youtube 影片很方便
