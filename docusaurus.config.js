@@ -116,8 +116,8 @@ const config = {
           src: 'img/favicon/favicon.svg'
         },
         items: [
-          { to: '/blog', label: '📝 最新貼文', position: 'left' },
-          { to: '/blog/archive', label: '🗄️ 貼文列表', position: 'left' },
+          { to: '/blog', label: '📝 最新', position: 'left' },
+          { to: '/blog/archive', label: '🗄️ 列表', position: 'left' },
           { to: '/random', label: '🎲 隨機', position: 'left' },
           { to: '/docs', label: '📚 筆記', position: 'left' },
           { to: '/mayday-sim', label: '🎫 搶票練習', position: 'left' },
@@ -133,10 +133,10 @@ const config = {
           {
             title: '快速導覽',
             items: [
-              { label: '最新貼文', to: '/blog' },
+              { label: '最新', to: '/blog' },
               { label: '筆記', to: '/docs' },
-              { label: '貼文列表', to: '/blog/archive' },
-              { label: '隨機連結', to: '/random' },
+              { label: '列表', to: '/blog/archive' },
+              { label: '隨機', to: '/random' },
             ],
           },
           {
@@ -144,7 +144,7 @@ const config = {
             items: [
               { label: '關於我', to: '/about' },
               // { label: '愛用', to: '/use' },
-              { label: '應用程式', to: '/app' },
+              { label: 'APP', to: '/app' },
               { label: '更新紀錄', to: '/docs/update' },
             ],
           },
